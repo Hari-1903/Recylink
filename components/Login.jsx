@@ -17,7 +17,7 @@ const Login = () => {
       window.location.href = "/user";
     } 
     if (authorityId && passwordOff){
-      location.href='/authority';
+      window.location.href='/authority';
     }
   };
 
@@ -26,7 +26,7 @@ const Login = () => {
       <div className="h-screen w-screen flex-center">
         <div className="h-[500px] grid grid-cols-[450px_375px] shadow-2xl">
           <div className="rounded-l-xl relative">
-            <video src="/assets/images/leaves.mp4" className="h-full w-full object-cover rounded-l-xl -z-10 absolute" autoPlay muted loop zoom>
+            <video src="/assets/images/leaves.mp4" className="h-full w-full object-cover rounded-l-xl -z-10 absolute" autoPlay muted loop>
             </video>
             <div className="h-full w-full flex flex-col justify-end">
               <div className="h-full w-full flex-center flex-col">
@@ -46,24 +46,24 @@ const Login = () => {
               <div>
                 <div className="grid grid-cols-2">
                   <button className='text-lg px-7 py-1 m-2 border-2 border-white rounded-full hover:bg-primary hover:shadow-2xl transition-all ease-in hover:scale-[0.95]' onClick={() => { setIsUserLogin(true); setIsAuthorityLogin(false);}}>User</button>
-                  <button className='text-lg px-7 py-1 m-2 border-2 border-white rounded-full hover:bg-primary hover:shadow-2xl transition-all ease-in hover:scale-[0.95]'onClick={() => { setIsAuthorityLogin(true); setIsUserLogin(false);}}>Authority</button>
+                  <button className='text-lg px-7 py-1 m-2 border-2 border-white rounded-full hover:bg-primary hover:shadow-2xl transition-all ease-in hover:scale-[0.95]' onClick={() => { setIsAuthorityLogin(true); setIsUserLogin(false);}}>Authority</button>
                 </div>
                 <div className="flex flex-col mt-5">
                   {isUserLogin ? (
                   <div>
-                    <form action="" >
+                    <form action="" onSubmit={handleSubmit}>
                       <div className="flex-center flex-col">
-                        <input type="text" required placeholder="Email Id" value={mailId} onChange={(e)=>setMailid(e.target.value)} className="w-full resize-none rounded-lg pt-3 pl-4 pr-4 pb-4"/>
+                        <input type="email" required placeholder="Email Id" value={mailId} onChange={(e)=>setMailid(e.target.value)} className="w-full resize-none rounded-lg pt-3 pl-4 pr-4 pb-4"/>
                         <input type="password" required placeholder="Password" value={passwordUser} onChange={(e)=>setPassworduser(e.target.value)} className="w-full resize-none rounded-lg pt-3 pl-4 pr-4 pb-4 mt-2"/>
                         <button type="submit" className="w-3/4 text-white py-2 rounded-[10px] border-2 bg-primary hover:scale-[0.95] transition-all ease-in mt-7">Submit</button>
                       </div>
                     </form>
                   </div>) : isAuthorityLogin ? (
                   <div>
-                    <form action="">
+                    <form action="" onSubmit={handleSubmit}>
                       <div className="flex-center flex-col">
-                        <input type="text" required placeholder="Authority Id" value={authorityId} onChange={(e)=>setAuthorityid(e.target.value)} className="w-full resize-none rounded-[30px] pt-3 pl-4 pr-4 pb-4]" />
-                        <input type="password" required placeholder="Password" value={passwordOff} onChange={(e)=>setPasswordoff(e.target.value)} className="w-full resize-none rounded-[30px] pt-3 pl-4 pr-4 pb-4 mt-2"/>
+                        <input type="text" required placeholder="Authority Id" value={authorityId} onChange={(e)=>setAuthorityid(e.target.value)} className="w-full resize-none rounded-lg pt-3 pl-4 pr-4 pb-4" />
+                        <input type="password" required placeholder="Password" value={passwordOff} onChange={(e)=>setPasswordoff(e.target.value)} className="w-full resize-none rounded-lg pt-3 pl-4 pr-4 pb-4 mt-2"/>
                         <button type="submit" className="w-3/4 text-white py-2 rounded-[10px] border-2 bg-primary hover:scale-[0.95] transition-all ease-in mt-7">Submit</button>
                       </div>
                     </form>

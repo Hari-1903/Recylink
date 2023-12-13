@@ -8,9 +8,9 @@ export const metadata ={
 const Rootlayout = ({children}) => {
   return (
     <html lang='en'>
-      <main className='app'>
+      <body className='app'>
         {children}
-      </main>
+      </body>
     </html>
   )
 }
