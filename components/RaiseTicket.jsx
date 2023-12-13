@@ -24,7 +24,6 @@ const Complaint = () => {
       <div className='bg-teritiary w-full rounded-2xl'>
       </div>
     </div>
-
   )
 }
 

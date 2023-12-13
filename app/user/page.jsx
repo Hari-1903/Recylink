@@ -1,12 +1,12 @@
 import React from 'react';
 import UserNav from '@components/UserNav';
-import Complaint from '@components/Complaint';
+import RaiseTicket from '@components/RaiseTicket';
 
 const User = () => {
   return (
     <>
       <UserNav/>
-      <Complaint/>
+      <RaiseTicket/>
     </>
   )
 }
