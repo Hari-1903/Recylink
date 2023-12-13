@@ -1,8 +1,8 @@
 import React from 'react';
 import UserNav from '@components/UserNav';
-import Complaint from '@components/complaint';
+import Complaint from '@components/Complaint';
 
-const page = () => {
+const User = () => {
   return (
     <>
       <UserNav/>
@@ -11,4 +11,4 @@ const page = () => {
   )
 }
 
-export default page
+export default User;

@@ -1,11 +1,12 @@
-import React from 'react'
+import UserNav from '@components/UserNav';
+import React from 'react';
 
-const page = () => {
+const Contact = () => {
   return (
     <div>
-      Contact page
+      <UserNav/>
     </div>
   )
 }
 
-export default page
+export default Contact;

@@ -1,4 +1,5 @@
 'use client'
+
 import React,{ useState } from "react";
 import Image from "next/image";
 
@@ -10,16 +11,24 @@ const Login = () => {
   const [passwordOff, setPasswordoff] = useState("");
   const [isUserLogin, setIsUserLogin] = useState(true);
   const [isAuthorityLogin, setIsAuthorityLogin] = useState(false);
+  const [issingupmode, setIsSignupmode] = useState(true);
   
-  const handleSubmit = (e) => {
+  const handleuserSubmit = (e) => {
     e.preventDefault();
     if (mailId && passwordUser) {
       window.location.href = "/user";
     } 
-    if (authorityId && passwordOff){
+  }
+
+  const handleauthoritySubmit = (e) => {
+    e.preventDefault();
+    if (authorityId ==='admin' && passwordOff ==='admin'){
       window.location.href='/authority';
     }
-  };
+    else if (authorityId !=='admin123' && passwordOff !=='admin123'){
+      window.alert("Invalid Credentials");
+    }
+  }
 
   return (
     <section>
@@ -35,23 +44,22 @@ const Login = () => {
               </div>
               <div className="flex items-center justify-between bg-[rgba(255,255,255,0.5)] p-3 m-2 rounded-lg">
                 <p className="text-md text-white">Create a account</p>
-                <button className="bg-white p-1 rounded-lg font-semibold text-primary border-2 hover:scale-[0.95] transition-all ease-in shadow-2xl">Sign up</button>  
+                <button onClick={() => {setIsSignupmode((prevMode) => !prevMode)}} className="bg-white p-1 rounded-lg font-semibold text-primary border-2 hover:scale-[0.95] transition-all ease-in shadow-2xl">{issingupmode ? (<p>Sign Up</p>):(<p>Sign In</p>)}</button>  
               </div>
             </div>
           </div>
-          <div className="bg-slate-200 rounded-r-xl flex flex-col">
+          <div className="bg-tint rounded-r-xl flex flex-col">
             <div className="flex-center flex-col h-full">
-              {/* <Image src="/assets/icons/recylink.png" width={100} height={100}/> */}
-              <p className="text-3xl p-2 mb-4 font-bold">Welcome Back!</p>
+              {issingupmode ? (<p className="text-3xl p-2 mb-4 font-bold">Welcome Back!</p>): (<p className="text-3xl p-2 mb-4 font-bold">Let us Know you!</p>)}
               <div>
                 <div className="grid grid-cols-2">
-                  <button className='text-lg px-7 py-1 m-2 border-2 border-white rounded-full hover:bg-primary hover:shadow-2xl transition-all ease-in hover:scale-[0.95]' onClick={() => { setIsUserLogin(true); setIsAuthorityLogin(false);}}>User</button>
-                  <button className='text-lg px-7 py-1 m-2 border-2 border-white rounded-full hover:bg-primary hover:shadow-2xl transition-all ease-in hover:scale-[0.95]' onClick={() => { setIsAuthorityLogin(true); setIsUserLogin(false);}}>Authority</button>
+                  <button className='text-lg px-7 py-1 m-2 border-2 border-teritiary rounded-full hover:bg-teritiary hover:shadow-2xl transition-all ease-in hover:scale-[0.95]' onClick={() => { setIsUserLogin(true); setIsAuthorityLogin(false);}}>User</button>
+                  <button className='text-lg px-7 py-1 m-2 border-2 border-teritiary rounded-full hover:bg-teritiary hover:shadow-2xl transition-all ease-in hover:scale-[0.95]' onClick={() => { setIsAuthorityLogin(true); setIsUserLogin(false);}}>Authority</button>
                 </div>
                 <div className="flex flex-col mt-5">
                   {isUserLogin ? (
                   <div>
-                    <form action="" onSubmit={handleSubmit}>
+                    <form action="" onSubmit={handleuserSubmit}>
                       <div className="flex-center flex-col">
                         <input type="email" required placeholder="Email Id" value={mailId} onChange={(e)=>setMailid(e.target.value)} className="w-full resize-none rounded-lg pt-3 pl-4 pr-4 pb-4"/>
                         <input type="password" required placeholder="Password" value={passwordUser} onChange={(e)=>setPassworduser(e.target.value)} className="w-full resize-none rounded-lg pt-3 pl-4 pr-4 pb-4 mt-2"/>
@@ -60,7 +68,7 @@ const Login = () => {
                     </form>
                   </div>) : isAuthorityLogin ? (
                   <div>
-                    <form action="" onSubmit={handleSubmit}>
+                    <form action="" onSubmit={handleauthoritySubmit}>
                       <div className="flex-center flex-col">
                         <input type="text" required placeholder="Authority Id" value={authorityId} onChange={(e)=>setAuthorityid(e.target.value)} className="w-full resize-none rounded-lg pt-3 pl-4 pr-4 pb-4" />
                         <input type="password" required placeholder="Password" value={passwordOff} onChange={(e)=>setPasswordoff(e.target.value)} className="w-full resize-none rounded-lg pt-3 pl-4 pr-4 pb-4 mt-2"/>
@@ -71,9 +79,9 @@ const Login = () => {
                 </div>
               </div>
             </div>
-              <div className="pb-1">
-                <Image src="/assets/images/sihlogo.png" width={1000} height={400}/>
-              </div>
+              <a src="https://sih.gov.in/" className="pb-1">
+                <Image src="/assets/images/sihlogo.png" alt="Logo of SIH comittie" width={1000} height={400} priority/>
+              </a>
           </div>
         </div>
       </div>

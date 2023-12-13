@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import AuthorityNav from '@components/AuthorityNav';
 
-const page = () => {
+const Authority = () => {
   return (
     <div>
-      Authority Dashboard
+      <AuthorityNav/>
     </div>
   )
 }
 
-export default page
+export default Authority;
