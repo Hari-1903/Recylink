@@ -2,9 +2,8 @@ import Login from '@components/Login'
 
 const Landingpage = () => {
   return (
-    <div className='flex'>
-      <div className="flex w-3/4 bg-[url('/assets/images/indian_flag.jpeg')] bg-cover">
-        <p className='text-7xl font-bold uppercase'>recylink</p>
+    <div>
+      <div className=' bg-[linear-gradient(90deg,#70ac44,#dffacc)] absolute top-0 left-0 h-screen w-screen -z-40'>
       </div>
       <Login/>
     </div>

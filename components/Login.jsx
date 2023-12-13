@@ -1,21 +1,19 @@
 'use client'
-
-import { useState } from "react";
+import React,{ useState } from "react";
 import Image from "next/image";
 
 const Login = () => {
-  const [isUserLogin, setIsUserLogin] = useState(true);
-  const [isAuthorityLogin, setIsAuthorityLogin] = useState(false);
+  
   const [mailId, setMailid] = useState("");
+  const [passwordUser, setPassworduser] = useState("");
   const [authorityId, setAuthorityid] = useState("");
   const [passwordOff, setPasswordoff] = useState("");
-  const [passwordUser, setPassworduser] = useState("");
-
+  const [isUserLogin, setIsUserLogin] = useState(true);
+  const [isAuthorityLogin, setIsAuthorityLogin] = useState(false);
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     if (mailId && passwordUser) {
-      // Here you would typically make an API call to validate and log the user in.
-      // Redirect to the home page after a successful login
       window.location.href = "/user";
     } 
     if (authorityId && passwordOff){
@@ -23,70 +21,62 @@ const Login = () => {
     }
   };
 
-  // const handleAuthoritySubmit = () => {
-  //   if (authorityId) {
-  //     Here you would typically make an API call to validate and log the authority in.
-  //     Redirect to the reviewComplaints page after a successful login:
-  //   location.href = "/authority";
-  //   } else {
-  //     prompt({
-  //       title: "Error.",
-  //       description: "Please enter the authority ID.",
-  //       status: "error",
-  //       duration: 3000,
-  //       isClosable: true,
-  //     });
-  //   }
-  // };
-
   return (
-    <section className="flex-center w-[35%]">
-        <div className="flex-center flex-col  w-full p-16 h-screen bg-slate-50">
-        <div className="flex flex-col items-center h-[520px] w-full bg-slate-200">
-          <h1 className="flex justify-center font-bold text-5xl p-5 w-full bg-primary text-white">Login</h1>
-
-          {isUserLogin ? (
-              <div>
-              <form action="" onSubmit={handleSubmit}>
-              <div className="container">
-                <label><b>Mail Id</b></label>
-                <input type="email" required placeholder="Enter Mail Id" value={mailId} onChange={(e)=>setMailid(e.target.value)}/>
-                <br/>    
-                <label><b>Password</b></label>
-                <input type="password" required placeholder="Enter Password" value={passwordUser} onChange={(e)=>setPassworduser(e.target.value)}/>
+    <section>
+      <div className="h-screen w-screen flex-center">
+        <div className="h-[500px] grid grid-cols-[450px_375px] shadow-2xl">
+          <div className="rounded-l-xl relative">
+            <video src="/assets/images/leaves.mp4" className="h-full w-full object-cover rounded-l-xl -z-10 absolute" autoPlay muted loop zoom>
+            </video>
+            <div className="h-full w-full flex flex-col justify-end">
+              <div className="h-full w-full flex-center flex-col">
+                <p className="text-3xl font-extrabold text-white">RecyLink</p>
+                <p className="text-xl font-medium text-white">Towards a Cleaner Environment</p>
               </div>
-              <button type="submit">Submit</button>
-              </form>
-            </div>
-          ) : isAuthorityLogin ? (
-              <div>
-              <form action="" onSubmit={handleSubmit}>
-              <div className="container">
-                <label><b>Authority Id</b></label>
-                <input type="text" required placeholder="Authority Id" value={authorityId} onChange={(e)=>setAuthorityid(e.target.value)}/>
-                <br/>
-                <label><b>Password</b></label>
-                <input type="password" required placeholder="Password" value={passwordOff} onChange={(e)=>setPasswordoff(e.target.value)}/>
+              <div className="flex items-center justify-between bg-[rgba(255,255,255,0.5)] p-3 m-2 rounded-lg">
+                <p className="text-md text-white">Create a account</p>
+                <button className="bg-white p-1 rounded-lg font-semibold text-primary border-2 hover:scale-[0.95] transition-all ease-in shadow-2xl">Sign up</button>  
               </div>
-              <button type="submit">Submit</button>
-              </form>
             </div>
-          ) : null}
-            <button onClick={() => {
-                setIsUserLogin(true);
-                setIsAuthorityLogin(false);
-            }} className='text-xl inline-block bg-slate-700 text-white'>User Login</button>
-            <button onClick={() => {
-                setIsAuthorityLogin(true);
-                setIsUserLogin(false);
-            }} className='text-xl inline-block bg-slate-700 text-white'>Authority Login</button>
+          </div>
+          <div className="bg-slate-200 rounded-r-xl flex flex-col">
+            <div className="flex-center flex-col h-full">
+              {/* <Image src="/assets/icons/recylink.png" width={100} height={100}/> */}
+              <p className="text-3xl p-2 mb-4 font-bold">Welcome Back!</p>
+              <div>
+                <div className="grid grid-cols-2">
+                  <button className='text-lg px-7 py-1 m-2 border-2 border-white rounded-full hover:bg-primary hover:shadow-2xl transition-all ease-in hover:scale-[0.95]' onClick={() => { setIsUserLogin(true); setIsAuthorityLogin(false);}}>User</button>
+                  <button className='text-lg px-7 py-1 m-2 border-2 border-white rounded-full hover:bg-primary hover:shadow-2xl transition-all ease-in hover:scale-[0.95]'onClick={() => { setIsAuthorityLogin(true); setIsUserLogin(false);}}>Authority</button>
+                </div>
+                <div className="flex flex-col mt-5">
+                  {isUserLogin ? (
+                  <div>
+                    <form action="" >
+                      <div className="flex-center flex-col">
+                        <input type="text" required placeholder="Email Id" value={mailId} onChange={(e)=>setMailid(e.target.value)} className="w-full resize-none rounded-lg pt-3 pl-4 pr-4 pb-4"/>
+                        <input type="password" required placeholder="Password" value={passwordUser} onChange={(e)=>setPassworduser(e.target.value)} className="w-full resize-none rounded-lg pt-3 pl-4 pr-4 pb-4 mt-2"/>
+                        <button type="submit" className="w-3/4 text-white py-2 rounded-[10px] border-2 bg-primary hover:scale-[0.95] transition-all ease-in mt-7">Submit</button>
+                      </div>
+                    </form>
+                  </div>) : isAuthorityLogin ? (
+                  <div>
+                    <form action="">
+                      <div className="flex-center flex-col">
+                        <input type="text" required placeholder="Authority Id" value={authorityId} onChange={(e)=>setAuthorityid(e.target.value)} className="w-full resize-none rounded-[30px] pt-3 pl-4 pr-4 pb-4]" />
+                        <input type="password" required placeholder="Password" value={passwordOff} onChange={(e)=>setPasswordoff(e.target.value)} className="w-full resize-none rounded-[30px] pt-3 pl-4 pr-4 pb-4 mt-2"/>
+                        <button type="submit" className="w-3/4 text-white py-2 rounded-[10px] border-2 bg-primary hover:scale-[0.95] transition-all ease-in mt-7">Submit</button>
+                      </div>
+                    </form>
+                  </div>) : null}
+                </div>
+              </div>
+            </div>
+              <div className="pb-1">
+                <Image src="/assets/images/sihlogo.png" width={1000} height={400}/>
+              </div>
+          </div>
         </div>
-        <div class="flex gap-0 max-md:hidden">
-                <a target="_blank" href="https://sih.gov.in/" rel="noreferrer">
-                    <Image src="/assets/images/Sih_logo.png" width={500} height={500} alt="Picture of SIH colloborators" class="w-auto h-14"/>
-                </a>
-        </div>
-        </div>
+      </div>
     </section>
   );
 };
