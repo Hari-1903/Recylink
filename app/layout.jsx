@@ -1,4 +1,7 @@
 import '@styles/globals.css';
+import { ImageProvider } from '@/components/ReviewTicket'
+import { ChakraProvider } from '@chakra-ui/react';
+
 
 export const metadata ={
     title: "Recylink",
@@ -8,9 +11,14 @@ export const metadata ={
 const Rootlayout = ({children}) => {
   return (
     <html lang='en'>
+      <ImageProvider>
+        <ChakraProvider>
       <body className='app'>
         {children}
       </body>
+      </ChakraProvider>
+      </ImageProvider>
+      
     </html>
   )
 }
