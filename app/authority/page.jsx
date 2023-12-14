@@ -1,6 +1,6 @@
 import React from 'react';
-import AuthorityNav from '@components/AuthorityNav';
-import ReviewTicket from '@components/ReviewTicket';
+import AuthorityNav from '@/components/AuthorityNav';
+import ReviewTicket from '@/components/ReviewTicket';
 
 const Authority = () => {
   return (

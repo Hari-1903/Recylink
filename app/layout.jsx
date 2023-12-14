@@ -1,4 +1,4 @@
-import '@styles/globals.css';
+import '@/styles/globals.css';
 import { ImageProvider } from '@/components/ReviewTicket'
 import { ChakraProvider } from '@chakra-ui/react';
 
