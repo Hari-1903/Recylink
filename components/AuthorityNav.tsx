@@ -10,9 +10,9 @@ const AuthorityNav = () => {
         </a>
         <div className="flex-center gap-10">
             <div className="flex gap-4 max-md:gap-2">
-                <Link href='/Authority/ReviewTicket'><p className="font-medium px-4 py-1 rounded-xl bg-[#fffff] text-[#000] hover:transition all 0.2s ease-in-out cursor-pointer hover:bg-teritiary ">Review Ticket</p></Link>
-                <a><p className="font-medium px-4 py-1 rounded-xl bg-[#fffff] text-[#000] hover:transition all 0.2s ease-in-out cursor-pointer hover:bg-teritiary">Update Status</p></a>
-                <a><p className="font-medium px-4 py-1 rounded-xl bg-[#fffff] text-[#000] hover:transition all 0.2s ease-in-out cursor-pointer hover:bg-teritiary">Map</p></a>
+                <Link href='/Authority/ReviewTicket'><p className="nav-element ">Review Ticket</p></Link>
+                <a><p className="nav-element">Update Status</p></a>
+                <a><p className="nav-element">Map</p></a>
             </div>
         </div>
     </div>

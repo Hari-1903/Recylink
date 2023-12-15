@@ -33,8 +33,8 @@ const Login = () => {
   return (
     <section>
       <div className="h-screen w-screen flex-center">
-        <div className="h-[500px] grid grid-cols-[450px_375px] shadow-2xl">
-          <div className="rounded-l-xl relative">
+        <div className="h-[600px] grid grid-cols-[600px_400px] shadow-[0px_0px_10px_10px_rgb(0,0,0,0.1)] rounded-xl">
+          <div className="rounded-l-xl relative ">
             <video src="/assets/images/leaves.mp4" className="h-full w-full object-cover rounded-l-xl -z-10 absolute" autoPlay muted loop>
             </video>
             <div className="h-full w-full flex flex-col justify-end">

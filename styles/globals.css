@@ -16,6 +16,12 @@
     }
 }
 
+@layer components{
+    .nav-element{
+       @apply font-medium px-4 py-1 rounded-xl bg-[#fffff] text-[#000] hover:transition hover:duration-300 hover:ease-linear cursor-pointer hover:font-bold hover:bg-teritiary 
+    }
+}
+
 .flex-center{
     display: flex;
     justify-content: center;
