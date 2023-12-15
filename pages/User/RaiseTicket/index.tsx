@@ -1,12 +1,12 @@
 'use client'
+
 import React, { useState } from 'react';
-/** User part */
 import { Box, Button, Image, Input, VStack, HStack, Text, Heading, FormControl, FormLabel, useToast, SimpleGrid, Tabs, TabList, Tab, TabPanels, TabPanel } from '@chakra-ui/react';
 import { ChakraProvider, Fade } from '@chakra-ui/react';
-import UserNav from './UserNav';
+import Header from '@/components/UserNav';
 import axios from 'axios';
-import { useImage } from './ReviewTicket';
-import CapturePhoto from './CapturePhoto';
+import { useImage } from '@/components/ImageContext';
+import CapturePhoto from '@/components/CapturePhoto';
 
 type ImageDetails = {
     complaintNumber: number;
@@ -119,13 +119,13 @@ const UploadContent = () => {
   
 
   return (
-    <div className='flex flex-col space-x-2 justify-around h-[100vh]'>
-      {/* <Header /> */}
+    <VStack spacing={0} align="stretch" h="100vh">
+      <Header />
       <Fade in={true}>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} px={6} gridTemplateColumns={{ base: "1fr", md: "1fr 3fr" }}>
 
           {/* Thin Box for Uploading */}
-            {/* <Box
+            <Box
                 borderWidth="1px"
                 borderRadius="xl"
                 p={4}
@@ -160,10 +160,10 @@ const UploadContent = () => {
                         <VStack align="center" spacing={4} h="2xl">
                             <Heading>Live Capture</Heading>
                             <hr />
-                            <CapturePhoto onCapture={handleLiveCapture} /> */}
+                            <CapturePhoto onCapture={handleLiveCapture} />
 
                             {/* Render the submit button and location input based on the state */}
-                            {/* {showLiveCaptureSubmit && (
+                            {showLiveCaptureSubmit && (
                                 <>
                                     <FormControl mt={4}>
                                         <FormLabel>Location</FormLabel>
@@ -178,8 +178,8 @@ const UploadContent = () => {
                     </TabPanel>
                     </TabPanels>
                 </Tabs>
-            </Box> */}
-        
+            </Box>
+          
 
 
           {/* Fat Box for Complaints */}
@@ -232,8 +232,7 @@ const UploadContent = () => {
 
         </SimpleGrid>
       </Fade>
-      {/* <Footer /> */}
-    </div>
+    </VStack>
   );
 };
 

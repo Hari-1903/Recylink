@@ -1,6 +1,6 @@
 'use client'
+
 import React from 'react';
-/** Authority side */
 
 type ImageDetails = {
   complaintNumber: number;
@@ -17,7 +17,7 @@ interface ImageContextProps {
   setImageDetails: React.Dispatch<React.SetStateAction<ImageDetails[]>>;
 }
 
-const ReviewTicket = React.createContext<ImageContextProps | undefined>(undefined);
+const ImageContext = React.createContext<ImageContextProps | undefined>(undefined);
 
 export const ImageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [imageDetails, setImageDetails] = React.useState<ImageDetails[]>([]);
@@ -29,16 +29,16 @@ export const ImageProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }, []); 
 
     return (
-      <ReviewTicket.Provider value={{ imageDetails, setImageDetails }}>
+      <ImageContext.Provider value={{ imageDetails, setImageDetails }}>
         {children}
-      </ReviewTicket.Provider>
+      </ImageContext.Provider>
     );
 };
 
 
 
 export const useImage = () => {
-  const context = React.useContext(ReviewTicket);
+  const context = React.useContext(ImageContext);
   if (!context) {
     throw new Error('useImage must be used within an ImageProvider');
   }
@@ -46,4 +46,4 @@ export const useImage = () => {
 };
   
 
-export default ReviewTicket;
+export default ImageContext;

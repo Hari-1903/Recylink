@@ -1,7 +1,5 @@
 // CapturePhoto.tsx
-'use client'
 import React, { useRef, useState } from 'react';
-/** User part  */
 
 interface Props {
   onCapture?: (dataUrl: string) => void;  // Callback function to get the captured photo

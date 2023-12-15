@@ -16,14 +16,14 @@ const Login = () => {
   const handleuserSubmit = (e) => {
     e.preventDefault();
     if (mailId && passwordUser) {
-      window.location.href = "/user";
+      window.location.href = "/User";
     } 
   }
 
   const handleauthoritySubmit = (e) => {
     e.preventDefault();
     if (authorityId ==='admin' && passwordOff ==='admin'){
-      window.location.href='/authority';
+      window.location.href='/Authority';
     }
     else if (authorityId !=='admin123' && passwordOff !=='admin123'){
       window.alert("Invalid Credentials");
@@ -79,7 +79,7 @@ const Login = () => {
                 </div>
               </div>
             </div>
-              <a src="https://sih.gov.in/" className="pb-1">
+              <a className="pb-1">
                 <Image src="/assets/images/sihlogo.png" alt="Logo of SIH comittie" width={1000} height={400} priority/>
               </a>
           </div>
