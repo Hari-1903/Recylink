@@ -2,6 +2,7 @@
 
 import React,{ useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Login = () => {
   
@@ -79,9 +80,9 @@ const Login = () => {
                 </div>
               </div>
             </div>
-              <a className="pb-1">
+              <Link href="https://sih.gov.in/" target="_blank" className="pb-1">
                 <Image src="/assets/images/sihlogo.png" alt="Logo of SIH comittie" width={1000} height={400} priority/>
-              </a>
+              </Link>
           </div>
         </div>
       </div>

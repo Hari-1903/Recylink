@@ -14,7 +14,7 @@ import { RiLogoutCircleFill } from "react-icons/ri";
 
 
 
-const AuthorityNav = () => {
+const UserNav = () => {
   return (
         <div className='bg-white w-full h-full rounded-lg py-6 flex flex-col justify-between items-start'>
                 <Link href="/User" className='ml-7'>
@@ -34,11 +34,11 @@ const AuthorityNav = () => {
                         </div>
                         <div className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <FaRegFileAlt size="1.15rem"/>
-                            <Link href='/User/RaiseTicket'>Update Status</Link>
+                            <Link href='/User/RaiseTicket'>Review Status</Link>
                         </div>
                         <div className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <MdOutlineExplore size="1.15rem" />
-                            <Link href='/User/RaiseTicket'>Explore</Link>
+                            <Link href='/User/Rewards'>Rewards</Link>
                         </div>
                     </div>
 
@@ -70,4 +70,4 @@ const AuthorityNav = () => {
   )
 }
 
-export default AuthorityNav;
+export default UserNav;

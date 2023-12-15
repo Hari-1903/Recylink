@@ -37,7 +37,7 @@ const AuthorityNav = () => {
                         </div>
                         <div className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <FaMapLocationDot size="1.15rem"/>
-                            <Link href='/Authority'>Map</Link>
+                            <Link href='/Authority/Map'>Map</Link>
                         </div>
                     </div>
 
@@ -45,7 +45,7 @@ const AuthorityNav = () => {
                     <div className='w-full'>
                         <div className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <MdOutlineAddToPhotos size="1.15rem"/>
-                            <Link href='/Authority'>option1</Link>
+                            <Link href='/Authority/DownloadModel'>Download Model</Link>
                         </div>
                         <div className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <MdOutlineAddToPhotos size="1.15rem"/>
