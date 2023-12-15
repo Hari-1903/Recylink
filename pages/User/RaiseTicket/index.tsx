@@ -1,15 +1,13 @@
 'use client'
 
-import React, { useState } from 'react';
-import { Box, Button, Image, Input, VStack, HStack, Text, Heading, FormControl, FormLabel, useToast, SimpleGrid, Tabs, TabList, Tab, TabPanels, TabPanel } from '@chakra-ui/react';
-import { ChakraProvider, Fade } from '@chakra-ui/react';
-import Header from '@/components/UserNav';
+import React, { useState, useEffect } from 'react';
+import { Input , Button, Image, useToast} from '@chakra-ui/react';
 import axios from 'axios';
 import { useImage } from '@/components/ImageContext';
 import CapturePhoto from '@/components/CapturePhoto';
 import UserNav from '@/components/UserNav';
 
-type ImageDetails = {
+type imageDetails = {
     complaintNumber: number;
     dateOfComplaint: string;
     timeOfComplaint: string;
@@ -30,6 +28,14 @@ const UploadContent = () => {
 
     const [uploadimg,setUploadimg] = useState(false);
     const [livecapture,setlivecapture] = useState(false);
+    const [latitude, setLatitude] = useState("");
+    const [longitude, setLongitude] = useState("");
+
+    React.useEffect(() => {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            setLatitude(position.coords.latitude.toString());
+            setLongitude(position.coords.longitude.toString());
+        })});
 
     const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files![0];
@@ -117,19 +123,19 @@ const UploadContent = () => {
     return(
     <div className="grid grid-cols-[19vw_80vw] h-screen w-screen overflow-none">
         <div className="bg-black my-3 ml-3 rounded-xl shadow-[0px_0px_10px_10px_rgb(0,0,0,0.06)]"><UserNav/></div>
-        <div className="m-3 py-3 px-5 rounded-xl relative shadow-[0px_0px_10px_10px_rgb(0,0,0,0.02)] flex flex-col justify-between"> 
+        <div className="m-3 py-3 px-5 rounded-xl relative shadow-[0px_0px_10px_10px_rgb(0,0,0,0.02)] flex flex-col justify-evenly"> 
             <div className=''>
                 <div className='text-xl font-bold border-b-2 mb-3'>Raise a ticket</div>
                 <div className='grid grid-cols-2 gap-2'>
-                    <div className="rounded-xl relative h-[300px] bg-[rgba(255,255,255,0.3)] ">
+                    <div className="rounded-xl relative h-[250px] bg-[rgba(255,255,255,0.3)] ">
                         <video src="/assets/images/leaves.mp4" className="h-full w-full object-cover rounded-xl -z-10 absolute" autoPlay muted loop>
                         </video>
                         <div className="h-full w-full flex flex-col justify-end">
                         <div className="h-full w-full flex-center flex-col">
-                            <p className="text-3xl font-extrabold text-black">Would you like to</p>
+                            <p className="text-2xl font-extrabold text-black">Would you like to</p>
                             <div className='flex gap-4 mt-4'>
-                                <button onClick={() => { setUploadimg(true); setlivecapture(false);}} className='text-white text-xl rounded-[10px] border-2 border-teritiary px-5 py-3 bg-primary hover:scale-[0.95] transition-all ease-in'>Upload Image</button>
-                                <button onClick={() => { setUploadimg(false); setlivecapture(true);}} className='text-white text-xl rounded-[10px] border-2 border-teritiary px-5 py-3 bg-primary hover:scale-[0.95] transition-all ease-in'>Live Capture</button>
+                                <button onClick={() => { setUploadimg(true); setlivecapture(false);}} className='text-white text-lg rounded-[10px] border-2 border-teritiary px-5 py-3 bg-primary hover:scale-[0.95] transition-all ease-in'>Upload Image</button>
+                                <button onClick={() => { setUploadimg(false); setlivecapture(true);}} className='text-white text-lg rounded-[10px] border-2 border-teritiary px-5 py-3 bg-primary hover:scale-[0.95] transition-all ease-in'>Live Capture</button>
                             </div>
                         </div>
                         </div>
@@ -143,8 +149,10 @@ const UploadContent = () => {
                                 <label>Location</label>
                                 <Input value={location} onChange={(e) => setLocation(e.target.value)} />
                                 <br/>
-                                <Button mt={4} onClick={handleUpload}>Submit</Button>
-                                
+                                <div className='flex mt-4'> 
+                                    <Button onClick={handleUpload}>Submit</Button>
+                                    <p className='text-xs flex-center pl-3'>Lat:{latitude}<br/>Long:{longitude}</p>
+                                </div>
                             </form>) : livecapture ? 
                             (     <form>
                                     <h1>Live Capture</h1>
@@ -166,7 +174,7 @@ const UploadContent = () => {
                     </div>
                 </div>
             </div>
-            <div className='mt-4'>
+            <div className='mt-5'>
             <p className='text-xl font-bold border-b-2 mb-2'>My Complaints</p>
                 <div className='flex gap-5 overflow-x-auto p-4 scrollbar'>
                         {imageDetails.map((detail) => (
