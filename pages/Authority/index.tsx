@@ -3,6 +3,12 @@ import AuthorityNav from "../../components/AuthorityNav";
 
 const Homepage = () => {
   return (
+    <div className="grid grid-cols-[280px_1fr] h-screen">
+      <div className="bg-black my-3 ml-3 rounded-xl"><AuthorityNav/></div>
+      <div className="bg-yellow-200 m-3 rounded-xl">
+    
+
+
     <Box
       bgImage="url(/trash.png)"
       bgPos="center"
@@ -11,7 +17,7 @@ const Homepage = () => {
       h="100vh"
     >
       <VStack spacing={0} align="stretch" h="100vh">
-        <AuthorityNav/>
+        {/* <AuthorityNav/> */}
 
         <Center flexGrow={1}>
           <Box
@@ -61,6 +67,8 @@ const Homepage = () => {
         </Center>
       </VStack>
     </Box>
+    </div>
+    </div>
   );
 };
 
