@@ -7,8 +7,11 @@ const ReviewComplaints = () => {
   const { imageDetails } = useImage();
 
   return (
+    <div className="grid grid-cols-[280px_1fr] h-screen w-screen">
+    <div className="bg-black my-3 ml-3 rounded-xl shadow-[0px_0px_10px_10px_rgb(0,0,0,0.06)]"><AuthorityNav/></div>
+    <div className="m-3 p-16 rounded-xl relative bg-[rgba(255,255,255,0.5)] shadow-[0px_0px_10px_10px_rgb(0,0,0,0.06)] flex-center flex-col">
     <VStack spacing={6} align="stretch" h="100vh" bg="gray.100">
-      <AuthorityNav />
+      
       <Heading px={6} mb={4} size="lg" color="green.700" fontFamily={"serif"}>Complaint Reviews</Heading>
       <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} px={6} spacing={6}>
         {imageDetails.map((detail: any) => (
@@ -44,7 +47,10 @@ const ReviewComplaints = () => {
         ))}
       </SimpleGrid>
     </VStack>
-  );
+
+    </div>
+  </div>
+);
 };
 
 export default ReviewComplaints;

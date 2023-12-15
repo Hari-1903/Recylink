@@ -1,73 +1,18 @@
-import { Box, Heading, VStack, Center, Text } from "@chakra-ui/react";
 import AuthorityNav from "../../components/AuthorityNav";
+import Image from "next/image";
 
 const Homepage = () => {
   return (
-    <div className="grid grid-cols-[280px_1fr] h-screen">
-      <div className="bg-black my-3 ml-3 rounded-xl"><AuthorityNav/></div>
-      <div className="bg-yellow-200 m-3 rounded-xl">
-    
-
-
-    <Box
-      bgImage="url(/trash.png)"
-      bgPos="center"
-      bgRepeat="no-repeat"
-      bgSize="cover"
-      h="100vh"
-    >
-      <VStack spacing={0} align="stretch" h="100vh">
-        {/* <AuthorityNav/> */}
-
-        <Center flexGrow={1}>
-          <Box
-            pos="relative"
-            bg="transparent"
-            p={8}
-            borderRadius="md"
-            zIndex={1}
-            maxWidth="800px"
-            textAlign="center"
-          >
-            {/* This creates the blurred and darkened background for the text and heading */}
-            <Box
-              content='""'
-              pos="absolute"
-              top={0}
-              left={0}
-              right={0}
-              bottom={0}
-              bg="blackAlpha.600"
-              backdropFilter="blur(5px)"
-              borderRadius="lg"
-              zIndex={-1}
-            />
-            <Heading
-              size="2xl"
-              fontWeight="bold"
-              color="whiteAlpha.900"
-              fontFamily="Arial, sans-serif"
-            >
-              Waste Handling
-            </Heading>
-            <Text
-              fontSize="2xl"
-              color="whiteAlpha.900"
-              mt={4}
-              fontFamily="Georgia, serif"
-            >
-              A Digital platform that facilitates seamless reporting and
-              resolution of waste management, encompassing waste recycling and
-              energy generation, by connecting users directly with local
-              authorities. This eliminates the need for traditional, cumbersome
-              complaint procedures, providing a user-friendly avenue to address
-              environmental concerns and focuses more on recycling wastes
-            </Text>
-          </Box>
-        </Center>
-      </VStack>
-    </Box>
-    </div>
+    <div className="grid grid-cols-[280px_1fr] h-screen w-screen">
+      <div className="bg-black my-3 ml-3 rounded-xl shadow-[0px_0px_10px_10px_rgb(0,0,0,0.06)]"><AuthorityNav/></div>
+      <div className="m-3 p-16 rounded-xl relative bg-[rgba(255,255,255,0.5)] shadow-[0px_0px_10px_10px_rgb(0,0,0,0.06)] flex-center flex-col">
+        <Image src="/assets/images/home_bg.png" fill={true} className="h-full w-full object-cover rounded-xl -z-10" alt="Background Image(Garbage Truck)"/>
+        <Image src="/assets/icons/recylink_black.png" width={300} height={300} alt="Recylink Logo" className="pb-4"/>
+        <div className="text-3xl w-4/5 text-black font-medium flex-center flex-col">
+          <p>Transforming Waste Management</p>
+          <p>Bridging Users, Authorities, and Sustainability Efforts</p>
+        </div>
+      </div>
     </div>
   );
 };

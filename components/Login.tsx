@@ -39,8 +39,8 @@ const Login = () => {
             </video>
             <div className="h-full w-full flex flex-col justify-end">
               <div className="h-full w-full flex-center flex-col">
-                <p className="text-3xl font-extrabold text-white">RecyLink</p>
-                <p className="text-xl font-medium text-white">Towards a Cleaner Environment</p>
+                <p className="text-5xl font-extrabold text-white">RecyLink</p>
+                <p className="text-2xl font-medium text-white">Towards a Cleaner Environment</p>
               </div>
               <div className="flex items-center justify-between bg-[rgba(255,255,255,0.5)] p-3 m-2 rounded-lg">
                 <p className="text-md text-white">Create a account</p>

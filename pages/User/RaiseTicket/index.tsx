@@ -7,6 +7,7 @@ import Header from '@/components/UserNav';
 import axios from 'axios';
 import { useImage } from '@/components/ImageContext';
 import CapturePhoto from '@/components/CapturePhoto';
+import UserNav from '@/components/UserNav';
 
 type ImageDetails = {
     complaintNumber: number;
@@ -14,46 +15,47 @@ type ImageDetails = {
     timeOfComplaint: string;
     imageUrl: string;
     location: string;
-    status: 'submitted';
+    status: 'in-review';
     api_Response: any;
   };
   
 const UploadContent = () => {
     const { imageDetails, setImageDetails } = useImage();
     const [showLiveCaptureSubmit, setShowLiveCaptureSubmit] = useState(false);
-
     // const [imageDetails, setImageDetails] = useState<ImageDetails[]>([]);
     const [currentImage, setCurrentImage] = useState<string | null>(null);
     const [location, setLocation] = useState<string>("");
     const [apiResponse, setApiResponse] = useState<any>(null);
     const toast = useToast();
 
-  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files![0];
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      setCurrentImage(reader.result as string);
+    const [uploadimg,setUploadimg] = useState(false);
+    const [livecapture,setlivecapture] = useState(false);
+
+    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files![0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+        setCurrentImage(reader.result as string);
+        };
     };
-  };
 
-  const handleLiveCapture = (dataUrl: string) => {
-    setCurrentImage(dataUrl);
-    setShowLiveCaptureSubmit(true); // Show the submit button once the image is captured
-    toast({
-        title: "Image Captured Successfully.",
-        description: "Now, submit the complaint with the captured image.",
-        status: "info",
-        duration: 3000,
-        isClosable: true,
-    });
-};
+    const handleLiveCapture = (dataUrl: string) => {
+        setCurrentImage(dataUrl);
+        setShowLiveCaptureSubmit(true); // Show the submit button once the image is captured
+        toast({
+            title: "Image Captured Successfully.",
+            description: "Now, submit the complaint with the captured image.",
+            status: "info",
+            duration: 3000,
+            isClosable: true,
+        });
+    };
 
-  const handleUpload = async () => {
-    if (currentImage && location) {
-        const currentDate = new Date();
-        const complaintNumber = imageDetails.length + 1;
-
+    const handleUpload = async () => {
+        if (currentImage && location) {
+            const currentDate = new Date();
+            const complaintNumber = imageDetails.length + 1;
         // Start by making the API call
         try {
             const response = await axios({
@@ -74,166 +76,121 @@ const UploadContent = () => {
             }
 
             setImageDetails((prevDetails:any) => {
-              const newDetails = [...prevDetails, {
-                  complaintNumber,
-                  dateOfComplaint: currentDate.toLocaleDateString(),
-                  timeOfComplaint: currentDate.toLocaleTimeString(),
-                  imageUrl: currentImage,
-                  location,
-                  status: 'submitted',
-                  api_Response: response.data,
-              }];
-      
-              localStorage.setItem('imageDetails', JSON.stringify(newDetails));
-      
-              return newDetails;
-          });
-
-            setCurrentImage(null);
-            setLocation("");
-
-            setShowLiveCaptureSubmit(false);
-            setCurrentImage(null);
-            setLocation("");
-
-            toast({
-                title: "Complaint registered successfully.",
-                description: "Your trash image and location are saved.",
-                status: "success",
-                duration: 3000,
-                isClosable: true,
-            });
-
-        } catch (error : any) {
-            console.error("Error uploading image:", error.message);
-            toast({
-                title: "Error uploading image.",
-                description: error.message,
-                status: "error",
-                duration: 3000,
-                isClosable: true,
-            });
+            const newDetails = [...prevDetails, {
+                complaintNumber,
+                dateOfComplaint: currentDate.toLocaleDateString(),
+                timeOfComplaint: currentDate.toLocaleTimeString(),
+                imageUrl: currentImage,
+                location,
+                status: 'In-Review',
+                api_Response: response.data,
+                }];  
+                localStorage.setItem('imageDetails', JSON.stringify(newDetails));
+                return newDetails;
+                });
+                setCurrentImage(null);
+                setLocation("");
+                setShowLiveCaptureSubmit(false);
+                setCurrentImage(null);
+                setLocation("");
+                toast({
+                    title: "Complaint registered successfully.",
+                    description: "Your trash image and location are saved.",
+                    status: "success",
+                    duration: 3000,
+                    isClosable: true,
+                });
+            } 
+            catch (error : any) {
+                console.error("Error uploading image:", error.message);
+                toast({
+                    title: "Error uploading image.",
+                    description: error.message,
+                    status: "error",
+                    duration: 3000,
+                    isClosable: true,
+                });
+            }
         }
-    }
-};
+    };
   
-
-  return (
-    <VStack spacing={0} align="stretch" h="100vh">
-      <Header />
-      <Fade in={true}>
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} px={6} gridTemplateColumns={{ base: "1fr", md: "1fr 3fr" }}>
-
-          {/* Thin Box for Uploading */}
-            <Box
-                borderWidth="1px"
-                borderRadius="xl"
-                p={4}
-                w="100%"
-                shadow="xl"
-                boxShadow="8px 8px 8px 0px rgba(16,185,129,0.6)">
-                <Tabs variant="enclosed">
-                    <TabList>
-                        <Tab>Upload Image</Tab>
-                        <Tab>Live Capture</Tab>
-                    </TabList>
-
-                    <TabPanels>
-                        <TabPanel>
-                        <VStack align="center" spacing={4} h="2xl">
-                            <Heading>Upload Image</Heading>
-                            <hr/>
-                            <FormControl>
-                            <FormLabel>Image</FormLabel>
-                            <Input h={"50px"} pt={"2"} type="file" accept="image/*" onChange={handleImageChange} />
-                            </FormControl>
-                            <FormControl mt={4}>
-                            <FormLabel>Location</FormLabel>
-                            <Input value={location} onChange={(e) => setLocation(e.target.value)} />
-                            </FormControl>
-                            <Button mt={4} onClick={handleUpload}>
-                            Submit
-                            </Button>
-                        </VStack>
-                        </TabPanel>
-                        <TabPanel>
-                        <VStack align="center" spacing={4} h="2xl">
-                            <Heading>Live Capture</Heading>
-                            <hr />
-                            <CapturePhoto onCapture={handleLiveCapture} />
-
-                            {/* Render the submit button and location input based on the state */}
-                            {showLiveCaptureSubmit && (
-                                <>
-                                    <FormControl mt={4}>
-                                        <FormLabel>Location</FormLabel>
-                                        <Input value={location} onChange={(e) => setLocation(e.target.value)} />
-                                    </FormControl>
-                                    <Button mt={4} onClick={handleUpload}>
-                                        Submit
-                                    </Button>
-                                </>
-                            )}
-                        </VStack>
-                    </TabPanel>
-                    </TabPanels>
-                </Tabs>
-            </Box>
-          
-
-
-          {/* Fat Box for Complaints */}
-         <Box
-            borderWidth="1px" 
-            borderRadius="xl" 
-            p={4} 
-            w="100%" 
-            shadow="xl"
-            boxShadow="8px 8px 8px 0px rgba(16,185,129,0.6)">
-            <VStack align="center" spacing={4}>
-            <Heading>Submitted Complaints</Heading>
-            <hr/>
-            <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={4} w="100%">
-                {imageDetails.map((detail) => (
-                <Box 
-                    key={detail.complaintNumber} 
-                    borderWidth="1px" 
-                    borderRadius="lg" 
-                    p={4} 
-                    w="100%" 
-                    shadow="lg"
-                    _hover={{ shadow: "2xl", transform: "translateY(-4px)", transition: "0.3s" }}
-                >
-                   <Text><b>Complaint No : </b>{detail.complaintNumber}</Text>
-                  <Text><b>Date: </b>{detail.dateOfComplaint}</Text>
-                  <Text><b>Time: </b>{detail.timeOfComplaint}</Text>
-                  <Box mt={2} mb={2}>
-                  <Image src={detail.imageUrl} alt="Uploaded Trash" boxSize={{ base: "150px", md: "200px" }} />
-
-                  </Box>
-                  <Text><b>Location: </b>{detail.location}</Text>
-                  <Text><b>Status: </b>{detail.status}</Text>
-                  {/* Example to display a specific field from the response, adjust accordingly */}
-                  {/* {detail.api_Response  && (
-                    <Text>
-                        <b>API Data: </b>
-                        {detail.api_Response.predictions.map((pred : any, index : any) => (
-                            <React.Fragment key={index}>
-                                {pred.class}{index !== detail.api_Response.predictions.length - 1 ? ', ' : ''}
-                            </React.Fragment>
+    return(
+    <div className="grid grid-cols-[19vw_80vw] h-screen w-screen overflow-none">
+        <div className="bg-black my-3 ml-3 rounded-xl shadow-[0px_0px_10px_10px_rgb(0,0,0,0.06)]"><UserNav/></div>
+        <div className="m-3 py-3 px-5 rounded-xl relative shadow-[0px_0px_10px_10px_rgb(0,0,0,0.02)] flex flex-col justify-between"> 
+            <div className=''>
+                <div className='text-xl font-bold border-b-2 mb-3'>Raise a ticket</div>
+                <div className='grid grid-cols-2 gap-2'>
+                    <div className="rounded-xl relative h-[300px] bg-[rgba(255,255,255,0.3)] ">
+                        <video src="/assets/images/leaves.mp4" className="h-full w-full object-cover rounded-xl -z-10 absolute" autoPlay muted loop>
+                        </video>
+                        <div className="h-full w-full flex flex-col justify-end">
+                        <div className="h-full w-full flex-center flex-col">
+                            <p className="text-3xl font-extrabold text-black">Would you like to</p>
+                            <div className='flex gap-4 mt-4'>
+                                <button onClick={() => { setUploadimg(true); setlivecapture(false);}} className='text-white text-xl rounded-[10px] border-2 border-teritiary px-5 py-3 bg-primary hover:scale-[0.95] transition-all ease-in'>Upload Image</button>
+                                <button onClick={() => { setUploadimg(false); setlivecapture(true);}} className='text-white text-xl rounded-[10px] border-2 border-teritiary px-5 py-3 bg-primary hover:scale-[0.95] transition-all ease-in'>Live Capture</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div className='bg-tint rounded-xl border-[1px] border-teritiary flex-center'>
+                        {uploadimg ? 
+                            (<form>
+                                <label>Image</label>
+                                <Input h={"50px"} pt={"2"} type="file" accept="image/*" onChange={handleImageChange} />
+                                <br/>
+                                <label>Location</label>
+                                <Input value={location} onChange={(e) => setLocation(e.target.value)} />
+                                <br/>
+                                <Button mt={4} onClick={handleUpload}>Submit</Button>
+                                
+                            </form>) : livecapture ? 
+                            (     <form>
+                                    <h1>Live Capture</h1>
+                                    <CapturePhoto onCapture={handleLiveCapture} />
+                                    <br/>
+                                    {showLiveCaptureSubmit && (
+                                        <>
+                                            <label>Location</label>
+                                            <Input value={location} onChange={(e) => setLocation(e.target.value)} />
+                                            <br/>
+                                            <Button mt={4} onClick={handleUpload}>Submit</Button>
+                                        </>
+                                    )}
+                                </form>) : 
+                            (
+                                <div className='text-2xl font-medium'>👈 Select an option to report the waste</div>
+                            )
+                        }
+                    </div>
+                </div>
+            </div>
+            <div className='mt-4'>
+            <p className='text-xl font-bold border-b-2 mb-2'>My Complaints</p>
+                <div className='flex gap-5 overflow-x-auto p-4 scrollbar'>
+                        {imageDetails.map((detail) => (
+                        <div className='px-3 py-2 min-w-[220px] shadow-[0px_0px_6px_2px_rgb(0,0,0,0.06)] rounded-md hover:bg-slate-100 hover:scale-110 transition-all 2s ease-in-out'>
+                            <div className='flex justify-between border-b-2'>
+                                <p className='text-lg font-bold'>{detail.complaintNumber}</p>
+                                <p className='text-lg font-bold text-teritiary hover:text-blac'>{detail.status}</p>
+                            </div>
+                            <div className='flex-center py-2 flex-col'>
+                                <Image src={detail.imageUrl} alt="Uploaded Trash" className='rounded-md' boxSize={{ base: "100px", md: "175px" }} />
+                                <p className='text-xs'>{detail.location}</p>
+                            </div>
+                            <div className='flex justify-between border-t-2'>
+                                <p className='text-xs'>{detail.dateOfComplaint}</p>
+                                <p className='text-xs'>{detail.timeOfComplaint}</p>
+                            </div>
+                        </div>
                         ))}
-                    </Text>
-                )} */}
-                </Box>
-                ))}
-            </SimpleGrid>
-            </VStack>
-         </Box>
+                </div>
+            </div>
+    </div>
+  </div>
+)}
 
-        </SimpleGrid>
-      </Fade>
-    </VStack>
-  );
-};
 
 export default UploadContent;
+

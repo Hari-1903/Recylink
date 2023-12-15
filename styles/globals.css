@@ -14,11 +14,16 @@
     body{
         font-family: 'Montserrat', sans-serif;
     }
+
 }
 
-@layer components{
-    .nav-element{
-       @apply font-medium px-4 py-1 rounded-xl bg-[#fffff] text-[#000] hover:transition hover:duration-300 hover:ease-linear cursor-pointer hover:font-bold hover:bg-teritiary 
+@layer utilities {
+    .scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar{
+        -ms-overflow-style: none; 
+        scrollbar-width: none; 
     }
 }
 

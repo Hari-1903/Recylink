@@ -3,10 +3,9 @@ import React from 'react';
 
 const Contact = () => {
   return (
-    <>
-      <UserNav/>
-    <div>
-      <UserNav />
+    <div className="grid grid-cols-[280px_1fr] h-screen w-screen">
+      <div className="bg-black my-3 ml-3 rounded-xl shadow-[0px_0px_10px_10px_rgb(0,0,0,0.06)]"><UserNav/></div>
+      <div className="m-3 p-16 rounded-xl relative bg-[rgba(255,255,255,0.5)] shadow-[0px_0px_10px_10px_rgb(0,0,0,0.06)] flex-center flex-col">
       <div className="flex absolute top-[120px] w-[320px] h-[calc(100%-200px)] z-1 justify-center flex-col justify-between mx-20 my-5 p-[40px] bg-teritiary shadow-md rounded-md max-w-sm">
         <h2 className="text-md font-semibold mx-3 my-1">Contact Info</h2>
         <div className="block text-sm font-medium">
@@ -86,7 +85,7 @@ const Contact = () => {
         </form>
       </div>
     </div>
-    </>
+      </div>
   )
 }
 
