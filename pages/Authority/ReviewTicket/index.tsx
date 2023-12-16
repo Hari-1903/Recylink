@@ -7,49 +7,43 @@ const ReviewComplaints = () => {
   const { imageDetails } = useImage();
 
   return (
-    <div className="grid grid-cols-[280px_1fr] h-screen w-screen">
-    <div className="bg-black my-3 ml-3 rounded-xl shadow-[0px_0px_10px_10px_rgb(0,0,0,0.06)]"><AuthorityNav/></div>
-    <div className="m-3 p-16 rounded-xl relative bg-[rgba(255,255,255,0.5)] shadow-[0px_0px_10px_10px_rgb(0,0,0,0.06)] flex-center flex-col">
-    <VStack spacing={6} align="stretch" h="100vh" bg="gray.100">
-      
-      <Heading px={6} mb={4} size="lg" color="green.700" fontFamily={"serif"}>Complaint Reviews</Heading>
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} px={6} spacing={6}>
-        {imageDetails.map((detail: any) => (
-          <Box
-            key={detail.complaintNumber}
-            borderWidth="1px"
-            borderRadius="lg"
-            p={4}
-            bg="white"
-            shadow="lg"
-            transition="0.3s"
-            _hover={{ shadow: "2xl", transform: "translateY(-4px)" }}
-          >
-            <Badge borderRadius="full" colorScheme="teal" p={1} mb={2}>Complaint No: {detail.complaintNumber}</Badge>
-            <Text fontSize="sm" color="gray.600"><b>Date: </b>{detail.dateOfComplaint}</Text>
-            <Text fontSize="sm" color="gray.600"><b>Time: </b>{detail.timeOfComplaint}</Text>
-            <Box mt={4} mb={4} overflow="hidden" borderRadius="md">
-              <Image src={detail.imageUrl} alt="Uploaded Trash" objectFit="cover" w="100%" h="250px" />
-            </Box>
-            <Text fontSize="sm" color="gray.600"><b>Location: </b>{detail.location}</Text>
-            <Text fontSize="sm" color="gray.600"><b>Status: </b>{detail.status}</Text>
-            {detail.api_Response && (
-              <Text fontSize="sm" color="gray.600" mt={2}>
-                <b>Trash type: </b>
-                {detail.api_Response.predictions.map((pred: any, index: any) => (
-                  <React.Fragment key={index}>
-                    {pred.class}{index !== detail.api_Response.predictions.length - 1 ? ', ' : ''}
-                  </React.Fragment>
-                ))}
-              </Text>
-            )}
-          </Box>
-        ))}
-      </SimpleGrid>
-    </VStack>
-
+    <div className="grid grid-cols-[280px_1fr] h-screen overflow-hidden">
+      <div className="bg-black my-3 ml-3 rounded-xl shadow-nav"><AuthorityNav/></div>
+      <div className="m-3 px-5 py-3 rounded-xl relative shadow-content flex flex-col">
+        <p className="text-xl font-bold border-b-2 mb-4 p-4">Raised Complaints</p>
+        <div className='h-[600px] grid grid-cols-5 gap-y-5 overflow-y-scroll px-5 pb-5 pt-2'>
+          {imageDetails.map((detail: any) => (
+            <div className="w-[200px] px-4 py-3 shadow-[0px_0px_6px_2px_rgb(0,0,0,0.06)] hover:bg-slate-100 hover:scale-110 transition-all 2s ease-in-out rounded-md">
+              <div className='flex justify-between items-center pb-1 border-b-2 mb-3'>
+                <p className='text-xl font-bold'>{detail.complaintNumber}</p>
+                <div className='flex-center flex-col'>
+                  <p className='text-xs'>{detail.dateOfComplaint}</p>
+                  <p className='text-xs'>{detail.timeOfComplaint}</p>
+                </div>
+              </div>
+              <div className='flex-center'>
+                <Image src={detail.imageUrl} className='rounded-md' alt="Uploaded Trash" objectFit="cover"  boxSize={{ base: "100px", md: "175px" }}/>
+              </div>
+              <div className='flex justify-between items-center text-xs p-1'>
+                <p className='uppercase'>{detail.location}</p>
+                <p className='text-primary font-medium'>{detail.status}</p> 
+              </div>
+              {detail.api_Response && (
+                <Text fontSize="sm" color="gray.600" mt={2} className='capitalize'>
+                  <b>Trash type: </b>
+                  {detail.api_Response.predictions.map((pred: any, index: any) => (
+                    <React.Fragment key={index}>
+                      {pred.class}{index !== detail.api_Response.predictions.length - 1 ? ', ' : ''}
+                    </React.Fragment>
+                  ))}
+                </Text>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
-  </div>
+
 );
 };
 

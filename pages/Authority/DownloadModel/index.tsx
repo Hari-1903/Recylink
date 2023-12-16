@@ -9,8 +9,8 @@ import { FaDownload } from "react-icons/fa";
 const Downloadmodel = () => {
   return (
     <div className="grid grid-cols-[280px_1fr] h-screen w-screen">
-        <div className="bg-black my-3 ml-3 rounded-xl shadow-[0px_0px_10px_10px_rgb(0,0,0,0.02)]"><AuthorityNav/></div>
-        <div className="container flex flex-col md:flex-row items-center m-3 p-16 rounded-xl relative bg-[rgba(255,255,255,0.5)] shadow-[0px_0px_10px_10px_rgb(0,0,0,0.06)]">
+        <div className="bg-black my-3 ml-3 rounded-xl shadow-nav"><AuthorityNav/></div>
+        <div className="container flex flex-col md:flex-row items-center m-3 p-16 rounded-xl relative bg-[rgba(255,255,255,0.5)] shadow-content">
 		
           <div className="flex flex-col w-full lg:w-1/2 justify-center items-start pt-0 pb-15 px-6">
             <h1 className="font-bold text-3xl my-4">Download Model</h1>

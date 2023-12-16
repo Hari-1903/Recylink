@@ -19,7 +19,11 @@ const config: Config = {
         'secondary': '#3DA35D',
         'teritiary': '#96E072',
         'tint': '#F9FFF1',
-      }
+      },
+      boxShadow: {
+        'nav': '-3px -3px 5px 5px rgba(0, 0, 0, 0.1)',
+        'content': '3px 3px 5px 5px rgba(0, 0, 0, 0.1)',
+      },
     },
   },
   plugins: [],
