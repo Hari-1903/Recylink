@@ -36,7 +36,7 @@ const UserNav = () => {
                             <MdOutlineAddToPhotos size="1.15rem"/>
                             <p>Raise a Ticket</p>
                         </Link>
-                        <Link href='/User/RaiseTicket' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                        <Link href='/User/ReviewStatus' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <FaRegFileAlt size="1.15rem"/>
                             <p>Review Status</p>
                         </Link>
@@ -49,19 +49,19 @@ const UserNav = () => {
                     <h1 className='text-xl text-left cursor-pointer font-bold border-b mt-5 ml-7 '>MORE</h1>
                     <div className='w-full'>
                         
-                        <Link href='/User/RaiseTicket' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                        <Link href='/User/DataAnalytics' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <SiSimpleanalytics/>
                             <p>Data Analytics</p>
                         </Link>
-                        <Link href='/User/RaiseTicket' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                        <Link href='/User/OurTeam' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <AiOutlineTeam size="1.15rem"/>
                             <p>Our Team</p>
                         </Link>
-                        <Link href='/AboutUs' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                        <Link href='/User/AboutUs' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <HiOutlineInformationCircle size="1.25rem"/>
                             <p>About Us</p>
                         </Link>
-                        <Link href="/Contact" className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                        <Link href="/User/Contact" className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <IoIosContact size="1.15rem"/>
                             <p>Contact</p>
                         </Link>

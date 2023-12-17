@@ -34,7 +34,7 @@ const AuthorityNav = () => {
                             <MdOutlinePreview size="1.15rem" />
                             <p>Review Tickets</p>
                         </Link>
-                        <Link href='/Authority' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                        <Link href='/Authority/UpdateStatus' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <FaRegFileAlt size="1.15rem"/>
                             <p>Update Status</p>
                         </Link>
@@ -50,15 +50,15 @@ const AuthorityNav = () => {
                         <IoMdDownload size="1.15rem"/>
                             <p>Download Model</p>
                         </Link>
-                        <Link href='/Authority' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                        <Link href='/Authority/AssignEmployee' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <MdOutlineAddToPhotos size="1.15rem"/>
                             <p>Assign Employee</p>
                         </Link>
-                        <Link href='/AboutUs' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                        <Link href='/Authority/AboutUs' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                         <HiOutlineInformationCircle size="1.25rem"/>
                             <p>About Us</p>
                         </Link>
-                        <Link href="/Contact" className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                        <Link href="/Authority/Contact" className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <IoIosContact size="1.15rem"/>
                             <p>Contact</p>
                         </Link>
