@@ -1,14 +1,17 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { IoMdHome } from "react-icons/io";
 import { MdOutlinePreview } from "react-icons/md";
 import { FaRegFileAlt } from "react-icons/fa";
 import { FaMapLocationDot } from "react-icons/fa6";
-import { MdOutlineExplore } from "react-icons/md";
 
-
+import { IoMdDownload } from "react-icons/io";
 import { MdOutlineAddToPhotos } from "react-icons/md";
+import { HiOutlineInformationCircle } from "react-icons/hi2";
 import { IoIosContact } from "react-icons/io";
+
 import { RiLogoutCircleFill } from "react-icons/ri";
 
 
@@ -23,46 +26,46 @@ const AuthorityNav = () => {
                 <div className="flex flex-col items-start gap-2 h-full w-full">
                     <h1 className='text-xl text-left cursor-pointer font-bold border-b mt-5 ml-7 '>QUICK MENU</h1>
                     <div className='w-full'>
-                        <div className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
-                            <MdOutlineExplore size="1.15rem" />
-                            <Link href='/Authority'>Home</Link>
-                        </div>                        
-                        <div className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg'>
+                        <Link href='/Authority' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                            <IoMdHome size="1.25rem"/>
+                            <p>Home</p>
+                        </Link>                        
+                        <Link href='/Authority/ReviewTicket' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg'>
                             <MdOutlinePreview size="1.15rem" />
-                            <Link href='/Authority/ReviewTicket'>Review Tickets</Link>
-                        </div>
-                        <div className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                            <p>Review Tickets</p>
+                        </Link>
+                        <Link href='/Authority' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <FaRegFileAlt size="1.15rem"/>
-                            <Link href='/Authority'>Update Status</Link>
-                        </div>
-                        <div className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                            <p>Update Status</p>
+                        </Link>
+                        <Link href='/Authority/Map' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <FaMapLocationDot size="1.15rem"/>
-                            <Link href='/Authority/Map'>Map</Link>
-                        </div>
+                            <p>Map</p>
+                        </Link>
                     </div>
 
                     <h1 className='text-xl text-left cursor-pointer font-bold border-b mt-5 ml-7 '>MORE</h1>
                     <div className='w-full'>
-                        <div className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                        <Link href='/Authority/DownloadModel' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                        <IoMdDownload size="1.15rem"/>
+                            <p>Download Model</p>
+                        </Link>
+                        <Link href='/Authority' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <MdOutlineAddToPhotos size="1.15rem"/>
-                            <Link href='/Authority/DownloadModel'>Download Model</Link>
-                        </div>
-                        <div className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
-                            <MdOutlineAddToPhotos size="1.15rem"/>
-                            <Link href='/Authority'>option2</Link>
-                        </div>
-                        <div className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
-                            <MdOutlineAddToPhotos size="1.15rem"/>
-                            <Link href='/Authority'>option3</Link>
-                        </div>
-                        <div className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                            <p>Assign Employee</p>
+                        </Link>
+                        <Link href='/Authority' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                        <HiOutlineInformationCircle size="1.25rem"/>
+                            <p>About Us</p>
+                        </Link>
+                        <Link href="/Contact" className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <IoIosContact size="1.15rem"/>
-                            <Link href="/Contact">Contact</Link>
-                        </div>
-                        <button className='flex justify-center items-center gap-1 mt-5 mx-7 px-16 py-2 text-white bg-primary hover:bg-dark-primary hover:scale-110 transition-all 2s ease-in-out hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] p-3 rounded-lg'>
+                            <p>Contact</p>
+                        </Link>
+                        <Link href='/' className='flex justify-center items-center gap-1 mt-5 mx-7 px-16 py-2 text-white bg-primary hover:bg-dark-primary hover:scale-110 transition-all 2s ease-in-out hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] p-3 rounded-lg'>
                             <RiLogoutCircleFill size="1.25rem"/>
-                            <Link href='/'>Log Out</Link>
-                        </button>                        
+                            <p>Log Out</p>
+                        </Link>                        
                     </div>
                 </div>
             </div>
