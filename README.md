@@ -1,38 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# **<p align="center">Welcome to Recylink!</p>**
 
-## Getting Started
+Recylink is a user-centric digital platform focusing on waste management in India. It enables seamless reporting and resolution of waste-related issues by connecting users with local authorities. A deep learning model categorizes waste for efficient collection and transport. The website offers multilingual support and includes a rewards system where users earn points for reporting litter, redeemable for coupons and gift cards.
+<p> </p><br>
 
-First, run the development server:
+![image](https://github.com/smearful/test/assets/91040298/0c9d24c4-975d-4a5a-8844-c297c66dcb8a)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📱Navigating Recyclink
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- [Technologies used](#technologies_used)
+- [Features](#features)
+- [Profile](#profile)
+  - [User](#user)
+  - [Authority](#authority)
+- [Rewards](#rewards)
+- [Creators](#creators)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## 🏗️Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+ ![NextJS-Dark (1)](https://github.com/smearful/test/assets/91040298/a1afefa1-7f5a-4ff1-ae5a-86ab4adc2124) ![NodeJS-Light (1)](https://github.com/smearful/test/assets/91040298/5da47092-aa02-449e-bddd-1f2c66dab735)
+    ![TypeScript (1)](https://github.com/smearful/test/assets/91040298/19f5caa5-79d2-4bab-b33b-7faa203fdf36) ![Vercel-Dark (1)](https://github.com/smearful/test/assets/91040298/08015217-94f3-452a-bd33-59a06c01b39a) ![tailwindcss-icon (1)](https://github.com/smearful/test/assets/91040298/1cab22a3-9845-410c-886e-a9565afbc7dd) 
+ ![react-2 (1)](https://github.com/smearful/test/assets/91040298/634c1fd0-2d30-43c5-85b2-1a83dc4bd5f4)
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## 🎯Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+ - User-Centric Interface: Foster community engagement by empowering users to report grievances, facilitating optimal waste collection solutions suggested by the 
+platform, enhancing collaboration with local authorities.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+ - Smart Waste Categorization: Improve waste management efficiency through deep learning, sorting waste into bio-degradable, non-biodegradable, and recyclable categories, streamlining transport to designated treatment facilities.
 
-## Deploy on Vercel
+ - Multilingual Accessibility: Enhance inclusivity in India by providing a user-friendly website with seamless multilingual support, accommodating diverse linguistic preferences for widespread participation.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+ - Rewarding Sustainability: Encourage eco-friendly behavior with the RecyRewards system, where users earn points for reporting litter, promoting a sustainable ecosystem through redeemable incentives like coupons, gift cards, and custom rewards.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## 📄Profile
+
+### 🙋User
+ - **Seamless Submission**: Easily submit detailed waste complaints, including images, on Recylink's user-friendly platform.
+
+ - **Efficient Tracking**: Track complaint progress and resolution updates through Recylink's ticketing system.
+
+ - **Verification of Cleanup**: Verify cleanup with provided proof for transparency in waste management.
+
+ - **Robust Rewards System**: Earn points for reporting litter on Recylink, redeemable for coupons, gift cards, and customized rewards.
+
+ - **Community Engagement**: Foster community responsibility and participation in sustainable waste management practices through Recylink's integrated approach.
+
+### 🧑‍💼Authority
+
+ - **Dashboard Review**: Recylink authorities assess tickets, prioritizing based on waste classification and reported garbage types.
+
+ - **Priority-Based Assessment**: Thorough evaluation considers assigned priority and specific waste types for a comprehensive understanding of concerns.
+
+ - **Task Assignment Efficiency**: Efficient assignment of cleanup tasks with established deadlines streamlines and prioritizes waste resolution efforts.
+
+ - **Transparent Documentation**: Upload relevant details and documentation for transparency, providing users with comprehensive information on waste management resolutions.
+
+
+## 🎁Rewards
+
+ - **Incentivized Reporting**: Recylink motivates users to report waste actively through a robust rewards system.
+
+ - **Earn-and-Redeem System**: Users accumulate points for reporting litter, which can be redeemed for coupons, gift cards, and customized rewards.
+
+ - **Diverse Redemption Choices**: The rewards program offers a range of options, allowing users to choose incentives that suit their preferences.
+
+ - **Community Engagement Boost**: This approach not only encourages reporting but also nurtures community engagement, fostering responsibility in sustainable waste   
+   management practices.
