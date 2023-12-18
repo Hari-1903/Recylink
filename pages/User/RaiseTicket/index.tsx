@@ -178,7 +178,7 @@ const UploadContent = () => {
             <p className='text-xl font-bold border-b-2 mb-2'>My Complaints</p>
                 <div className='flex gap-5 overflow-x-auto p-4 scrollbar'>
                         {imageDetails.map((detail) => (
-                        <div className='px-3 py-2 min-w-[220px] shadow-[0px_0px_6px_2px_rgb(0,0,0,0.06)] rounded-md hover:bg-slate-100 hover:scale-110 transition-all 2s ease-in-out'>
+                        <div className='px-3 py-2 min-w-[220px] shadow-[0px_0px_6px_2px_rgb(0,0,0,0.06)] rounded-md hover:bg-slate-100 hover:scale-110 transition-all 2s ease-in-out' key=''>
                             <div className='flex justify-between border-b-2'>
                                 <p className='text-lg font-bold'>{detail.complaintNumber}</p>
                                 <p className='text-lg font-bold text-teritiary hover:text-blac'>{detail.status}</p>

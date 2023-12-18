@@ -13,7 +13,7 @@ const ReviewComplaints = () => {
         <p className="text-xl font-bold border-b-2 mb-4 p-4">Raised Complaints</p>
         <div className='h-[600px] grid grid-cols-5 gap-y-5 overflow-y-scroll px-5 pb-5 pt-2'>
           {imageDetails.map((detail: any) => (
-            <div className="w-[200px] px-4 py-3 shadow-[0px_0px_6px_2px_rgb(0,0,0,0.06)] hover:bg-slate-100 hover:scale-110 transition-all 2s ease-in-out rounded-md">
+            <div className="w-[200px] px-4 py-3 shadow-[0px_0px_6px_2px_rgb(0,0,0,0.06)] hover:bg-slate-100 hover:scale-110 transition-all 2s ease-in-out rounded-md" key="">
               <div className='flex justify-between items-center pb-1 border-b-2 mb-3'>
                 <p className='text-xl font-bold'>{detail.complaintNumber}</p>
                 <div className='flex-center flex-col'>

@@ -28,19 +28,19 @@ const UserNav = () => {
                     
                     <h1 className='text-xl text-left cursor-pointer font-bold border-b mt-5 ml-7 '>QUICK MENU</h1>
                     <div className='w-full'>
-                        <Link href='/User' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                        <Link href='/User' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg hover:font-semibold hover:scale-105 transition-all ease-in-out'>
                             <IoMdHome size="1.25rem"/>
                             <p>Home</p>
                         </Link>
-                        <Link href='/User/RaiseTicket' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg'>
+                        <Link href='/User/RaiseTicket' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg hover:font-semibold hover:scale-105 transition-all ease-in-out'>
                             <MdOutlineAddToPhotos size="1.15rem"/>
                             <p>Raise a Ticket</p>
                         </Link>
-                        <Link href='/User/ReviewStatus' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                        <Link href='/User/ReviewStatus' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg hover:font-semibold hover:scale-105 transition-all ease-in-out'>
                             <FaRegFileAlt size="1.15rem"/>
                             <p>Review Status</p>
                         </Link>
-                        <Link href='/User/Rewards' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                        <Link href='/User/Rewards' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg hover:font-semibold hover:scale-105 transition-all ease-in-out'>
                             <LuCrown />
                             <p>Rewards</p>
                         </Link>
@@ -49,19 +49,19 @@ const UserNav = () => {
                     <h1 className='text-xl text-left cursor-pointer font-bold border-b mt-5 ml-7 '>MORE</h1>
                     <div className='w-full'>
                         
-                        <Link href='/User/DataAnalytics' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                        <Link href='/User/DataAnalytics' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg hover:font-semibold hover:scale-105 transition-all ease-in-out'>
                             <SiSimpleanalytics/>
                             <p>Data Analytics</p>
                         </Link>
-                        <Link href='/User/OurTeam' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                        <Link href='/User/OurTeam' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg hover:font-semibold hover:scale-105 transition-all ease-in-out'>
                             <AiOutlineTeam size="1.15rem"/>
                             <p>Our Team</p>
                         </Link>
-                        <Link href='/User/AboutUs' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                        <Link href='/User/AboutUs' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg hover:font-semibold hover:scale-105 transition-all ease-in-out'>
                             <HiOutlineInformationCircle size="1.25rem"/>
                             <p>About Us</p>
                         </Link>
-                        <Link href="/User/Contact" className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
+                        <Link href="/User/Contact" className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg hover:font-semibold hover:scale-105 transition-all ease-in-out'>
                             <IoIosContact size="1.15rem"/>
                             <p>Contact</p>
                         </Link>
