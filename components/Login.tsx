@@ -14,14 +14,14 @@ const Login = () => {
   const [isAuthorityLogin, setIsAuthorityLogin] = useState(false);
   const [issingupmode, setIsSignupmode] = useState(true);
   
-  const handleuserSubmit = (e) => {
+  const handleuserSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (mailId && passwordUser) {
       window.location.href = "/User";
     } 
   }
 
-  const handleauthoritySubmit = (e) => {
+  const handleauthoritySubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (authorityId ==='admin' && passwordOff ==='admin'){
       window.location.href='/Authority';
