@@ -122,24 +122,36 @@ const UploadContent = () => {
     return( 
         <>
             <div className=''>
-                <div className='text-xl font-bold border-b-2 mb-3'>Raise a ticket</div>
-                <div className='grid grid-cols-2 gap-2'>
-                    <div className="rounded-xl relative h-[250px] bg-[rgba(255,255,255,0.3)] ">
-                        <video src="/assets/images/leaves.mp4" className="h-full w-full object-cover rounded-xl -z-10 absolute" autoPlay muted loop>
+                <div className='text-xl font-bold border-b-2 mb-3 mt-8 md:mt-0'>Raise a ticket</div>
+                <div className='grid md:grid-cols-2 md:gap-2'>
+                    <div className="rounded-xl relative md:h-[250px] bg-[rgba(255,255,255,0.3)] p-0 shadow-content hidden md:block">
+                        <video src="/assets/images/leaves.mp4" className="h-full w-full object-cover rounded-xl -z-10 absolute hidden md:block" autoPlay muted loop>
                         </video>
-                        <div className="h-full w-full flex flex-col justify-end">
+                        <div className="md:h-full w-full flex flex-col justify-end">
                         <div className="h-full w-full flex-center flex-col">
-                            <p className="text-2xl font-bold text-black">Would you like to</p>
-                            <div className='flex gap-4 mt-4'>
-                                <button onClick={() => { setUploadimg(true); setlivecapture(false);}} className='text-white text-lg rounded-[10px] border-2 border-teritiary px-5 py-3 bg-primary hover:scale-[0.95] transition-all ease-in'>Upload Image</button>
-                                <button onClick={() => { setUploadimg(false); setlivecapture(true);}} className='text-white text-lg rounded-[10px] border-2 border-teritiary px-5 py-3 bg-primary hover:scale-[0.95] transition-all ease-in'>Live Capture</button>
+                            <p className="text-2xl font-bold text-black hidden md:block">Would you like to</p>
+                            <div className='md:flex gap-4 mt-4 hidden'>
+                                <button onClick={() => { setUploadimg(true); setlivecapture(false);}} className='text-white text-lg rounded-[10px] border-2 border-secondary px-5 py-3 bg-primary hover:scale-[0.95] transition-all ease-in'>Upload Image</button>
+                                <button onClick={() => { setUploadimg(false); setlivecapture(true);}} className='text-white text-lg rounded-[10px] border-2 border-secondary px-5 py-3 bg-primary hover:scale-[0.95] transition-all ease-in'>Live Capture</button>
                             </div>
                         </div>
                         </div>
                     </div>
-                    <div className='bg-tint rounded-xl border-[1px] border-teritiary flex-center'>
+                    <form className='p-4 md:p-0 md:hidden bg-tint rounded-xl shadow-content'>
+                                <label>Image</label>
+                                <Input h={"50px"} pt={"2"} type="file" accept="image/*" onChange={handleImageChange} />
+                                <br/>
+                                <label>Location</label>
+                                <Input value={location} onChange={(e) => setLocation(e.target.value)} />
+                                <br/>
+                                <div className='flex mt-4'> 
+                                    <Button onClick={handleUpload}>Submit</Button>
+                                    <p className='text-xs flex-center pl-3'>Lat:{latitude}<br/>Long:{longitude}</p>
+                                </div>
+                    </form>
+                    <div className='bg-tint rounded-xl flex-center shadow-content'>
                         {uploadimg ? 
-                            (<form>
+                            (<form className='p-4 md:p-0'>
                                 <label>Image</label>
                                 <Input h={"50px"} pt={"2"} type="file" accept="image/*" onChange={handleImageChange} />
                                 <br/>
@@ -165,8 +177,9 @@ const UploadContent = () => {
                                         </>
                                     )}
                                 </form>) : 
-                            (
-                                <div className='text-2xl font-medium'>👈 Select an option to report the waste</div>
+                            (<>
+                                <div className='text-2xl font-medium hidden md:block'>👈 Select an option to report the waste</div>
+                            </>
                             )
                         }
                     </div>

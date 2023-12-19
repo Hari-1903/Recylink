@@ -22,25 +22,25 @@ const UserNav = () => {
   return (
         <div className='bg-white w-full h-full rounded-lg py-6 flex flex-col justify-between items-start'>
                 <Link href="/User" className='ml-7'>
-                    <Image src="/assets/icons/recylink_black.png" width={150} height={150} alt="logo" />
+                    <Image src="/assets/icons/recylink_black.png" width={150} height={150} alt="logo" className='hidden md:block' />
                 </Link>
                 <div className="flex flex-col items-start gap-2 h-full w-full">
                     
                     <h1 className='text-xl text-left cursor-pointer font-bold border-b mt-5 ml-7 '>QUICK MENU</h1>
                     <div className='w-full'>
-                        <Link href='/User' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg hover:font-semibold hover:scale-105 transition-all ease-in-out'>
+                        <Link href='/User' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <IoMdHome size="1.25rem"/>
                             <p>Home</p>
                         </Link>
-                        <Link href='/User/RaiseTicket' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg hover:font-semibold hover:scale-105 transition-all ease-in-out'>
+                        <Link href='/User/RaiseTicket' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg'>
                             <MdOutlineAddToPhotos size="1.15rem"/>
                             <p>Raise a Ticket</p>
                         </Link>
-                        <Link href='/User/ReviewStatus' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg hover:font-semibold hover:scale-105 transition-all ease-in-out'>
+                        <Link href='/User/ReviewStatus' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <FaRegFileAlt size="1.15rem"/>
                             <p>Review Status</p>
                         </Link>
-                        <Link href='/User/Rewards' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg hover:font-semibold hover:scale-105 transition-all ease-in-out'>
+                        <Link href='/User/Rewards' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <LuCrown />
                             <p>Rewards</p>
                         </Link>
@@ -49,19 +49,19 @@ const UserNav = () => {
                     <h1 className='text-xl text-left cursor-pointer font-bold border-b mt-5 ml-7 '>MORE</h1>
                     <div className='w-full'>
                         
-                        <Link href='/User/DataAnalytics' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg hover:font-semibold hover:scale-105 transition-all ease-in-out'>
+                        <Link href='/User/DataAnalytics' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <SiSimpleanalytics/>
                             <p>Data Analytics</p>
                         </Link>
-                        <Link href='/User/OurTeam' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg hover:font-semibold hover:scale-105 transition-all ease-in-out'>
+                        <Link href='/User/OurTeam' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <AiOutlineTeam size="1.15rem"/>
                             <p>Our Team</p>
                         </Link>
-                        <Link href='/User/AboutUs' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg hover:font-semibold hover:scale-105 transition-all ease-in-out'>
+                        <Link href='/User/AboutUs' className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <HiOutlineInformationCircle size="1.25rem"/>
                             <p>About Us</p>
                         </Link>
-                        <Link href="/User/Contact" className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg hover:font-semibold hover:scale-105 transition-all ease-in-out'>
+                        <Link href="/User/Contact" className='flex justify-start items-center w-full gap-4 pl-5 text-lg text-gray-400 hover:text-primary hover:shadow-[0px_0px_10px_5px_rgb(0,0,0,0.04)] hover:border-l-8 hover:border-primary p-3.5 rounded-lg '>
                             <IoIosContact size="1.15rem"/>
                             <p>Contact</p>
                         </Link>
