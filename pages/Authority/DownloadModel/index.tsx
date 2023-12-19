@@ -12,12 +12,14 @@ const Downloadmodel = () => {
         <div className="bg-black my-3 ml-3 rounded-xl shadow-nav"><AuthorityNav/></div>
         <div className="grid grid-cols-2 grid-rows-2 gap-5 m-3 p-10 rounded-xl relative bg-[rgba(255,255,255,0.5)] shadow-content">
 
-          <div className="m-3 p-10 rounded-xl relative bg-[rgba(255,255,255,0.5)] flex-center flex-col">
+          <div className="m-3 p-10 rounded-xl relative flex-center flex-col">
               <div className=" flex-center flex-col">
               <h1 className="font-bold text-3xl my-4">Download Model</h1>
-              <p className="leading-normal mb-4">Introducing the YOLO v7 and v8, a state-of-the-art deep learning model designed specifically for efficient and accurate garbage classification.
-              This advanced version of the YOLO framework is tailored to categorize various types of waste materials, including plastics, metals, paper, organics, glass, with remarkable precision.</p>
+              <p className="leading-normal mb-4">Introducing the YOLO v7 and v8, a state-of-the-art deep learning model designed specifically for efficient and accurate garbage classification.</p>
+              <Link href="https://www.youtube.com/watch?app=desktop&v=m2RFdUfwUBA" target="_blank" className='text-blue-500'>Robotic arm Segregation</Link>
+              <Link href="https://www.youtube.com/watch?v=N7l_YxnLhIw" target="_blank" className='text-blue-500'>Convey Belt for Seperation </Link>
               </div>
+              <Image src="/assets/images/Machine.png" fill={true} className="h-full w-full object-cover rounded-xl -z-10" alt="Background Image"/>
           </div>
 
           <div className="m-3 p-10 rounded-xl relative bg-[rgba(255,255,255,0.5)] shadow-content flex-center flex-col hover:scale-105 transition-all duration-300 ease-in-out">
