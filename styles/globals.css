@@ -13,6 +13,7 @@
 @layer base{
     body{
         font-family: 'Montserrat', sans-serif;
+        overflow-y: none;
     }
 
 }

@@ -3,6 +3,7 @@ import { Chart, registerables } from "chart.js";
 import csv from "csvtojson";
 import UserNav from "@/components/UserNav";
 import Image from "next/image";
+import MobileNav from "@/components/MobileNav";
 
 Chart.register(...registerables);
 
@@ -73,8 +74,8 @@ const StackedBarChart: React.FC = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-[19vw_80vw] h-screen w-screen overflow-none">
-      <div className="bg-black my-3 ml-3 rounded-xl shadow-nav">
+    <div className="grid md:grid-cols-[19vw_80vw] h-screen w-screen overflow-none">
+      <div className="bg-black my-3 ml-3 rounded-xl shadow-nav hidden md:block" id='nav'>
         <UserNav />
       </div>
       <div className="m-3 py-3 px-5 rounded-xl relative bg-[rgba(255,255,255,0.75)] shadow-content">
@@ -94,6 +95,7 @@ const StackedBarChart: React.FC = () => {
             Rules, 2016
         </p>
       </div>
+      <MobileNav/>
     </div>
   );
 };

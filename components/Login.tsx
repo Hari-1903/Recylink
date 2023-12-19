@@ -33,15 +33,15 @@ const Login = () => {
 
   return (
     <section>
-      <div className="h-screen w-screen flex-center">
-        <div className="h-[600px] grid grid-cols-[600px_400px] shadow-[0px_0px_10px_10px_rgb(0,0,0,0.1)] rounded-xl">
-          <div className="rounded-l-xl relative ">
-            <video src="/assets/images/leaves.mp4" className="h-full w-full object-cover rounded-l-xl -z-10 absolute" autoPlay muted loop>
+      <div className="p-6 md:p-0 md:h-screen w-screen flex-center">
+        <div className="h-[600px] grid md:grid-cols-[600px_400px] shadow-[0px_0px_10px_10px_rgb(0,0,0,0.1)] rounded-xl grid-cols-1">
+          <div className="rounded-l-xl relative">
+            <video src="/assets/images/leaves.mp4" className="h-full w-full object-cover md:rounded-l-xl rounded-xl -z-10 absolute" autoPlay muted loop>
             </video>
             <div className="h-full w-full flex flex-col justify-end">
               <div className="h-full w-full flex-center flex-col">
-                <p className="text-5xl font-extrabold text-white">RecyLink</p>
-                <p className="text-2xl font-medium text-white">Towards a Cleaner Environment</p>
+                <p className="text-2xl md:text-5xl font-extrabold text-white">RecyLink</p>
+                <p className="text-xl md:text-2xl font-medium text-white">Towards a Cleaner Environment</p>
               </div>
               <div className="flex items-center justify-between bg-[rgba(255,255,255,0.5)] p-3 m-2 rounded-lg">
                 <p className="text-md text-white">Create a account</p>
@@ -49,7 +49,7 @@ const Login = () => {
               </div>
             </div>
           </div>
-          <div className="bg-tint rounded-r-xl flex flex-col">
+          <div className="bg-tint md:rounded-r-xl rounded-xl  flex flex-col">
             <div className="flex-center flex-col h-full">
               {issingupmode ? (<p className="text-3xl p-2 mb-4 font-bold">Welcome Back!</p>): (<p className="text-3xl p-2 mb-4 font-bold">Let us Know you!</p>)}
               <div>
