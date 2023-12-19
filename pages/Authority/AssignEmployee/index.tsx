@@ -16,11 +16,10 @@ const UserManagementDashboard: React.FC = () => {
   const [employees, setEmployees] = useState<Employee[]>([
     // ...your existing employees
   ]);
-
   // const [searchTerm, setSearchTerm] = useState('');
 
   // Handlers for UI interactions
-  const addEmployee = (newEmployee: Employee) => {setEmployees([...employees, newEmployee]);
+  const addEmployee = (newEmployee: Employee) => {setEmployees(prevEmployees =>[...prevEmployees, newEmployee]);
    };
    const handleAddEmployee = () => {
     const firstName = window.prompt('Enter the first name of the employee');
@@ -46,9 +45,7 @@ const UserManagementDashboard: React.FC = () => {
       alert('All fields are required to add a new employee');
     }
   };
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => { 
-    // setSearchTerm(event.target.value.toLowerCase());
-   };
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => { /*...*/};
   const handleImport = () => { /* ... */ };
   const handleExport = () => { /* ... */ };
   const handleFilter = () => { /* ... */ };
