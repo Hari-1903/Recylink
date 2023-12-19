@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { Chart, registerables } from "chart.js";
 import csv from "csvtojson";
-import UserNav from "@/components/UserNav"; // Replace with the correct path to UserNav
+import UserNav from "@/components/UserNav";
+import Image from "next/image";
 
 Chart.register(...registerables);
 
@@ -76,23 +77,22 @@ const StackedBarChart: React.FC = () => {
       <div className="bg-black my-3 ml-3 rounded-xl shadow-nav">
         <UserNav />
       </div>
-      <div className="m-3 py-3 px-5 rounded-xl relative shadow-content">
+      <div className="m-3 py-3 px-5 rounded-xl relative bg-[rgba(255,255,255,0.75)] shadow-content">
+        <Image src="/assets/images/data_bg.png" fill={true} className="h-full w-full object-cover rounded-xl -z-10" alt="Background Image(Garbage Truck)"/>
         <div>
-          <h1 className="w-[110px] mx-auto mt-10 text-xl font-semibold capitalize">
+          <p className="text-2xl font-bold capitalize p-4 flex-center">
             Treated Wastes vs Untreated Wastes - Stacked Bar-Chart
-          </h1>
-          <div className="w-[1100px] h-screen flex mx-auto my-auto">
-            <div className="border border-gray-400 pt-0 rounded-xl w-full h-fit my-auto shadow-xl">
+          </p>
+          <div className="flex-center p-3">
+            <div className="border border-gray-400 bg-white pt-0 rounded-xl w-full h-fit my-auto shadow-xl hover:scale-105 transition-all duration-500 ease-in-out">
               <canvas id="StackedBarChart"></canvas>
             </div>
           </div>
-          <p>
+        </div>
+        <p className="absolute bottom-0 right-0 p-3 text-xs font-semibold">
             Annual Report 2020-21 on Implementation of Solid Waste Management
             Rules, 2016
-          </p>
-          <div>Pie Chart</div>
-          <div>Bubble Chart</div>
-        </div>
+        </p>
       </div>
     </div>
   );
