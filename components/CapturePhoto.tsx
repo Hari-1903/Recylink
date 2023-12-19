@@ -1,4 +1,3 @@
-// CapturePhoto.tsx
 import React, { useRef, useState } from 'react';
 
 interface Props {
@@ -11,7 +10,9 @@ const CapturePhoto: React.FC<Props> = ({ onCapture }) => {
   const [isStreaming, setIsStreaming] = useState(false);
 
   // Start the video stream
-  const startStream = async () => {
+  const startStream = async (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent default form submission behavior
+
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ video: true });
@@ -31,8 +32,19 @@ const CapturePhoto: React.FC<Props> = ({ onCapture }) => {
     }
   };
 
-  // Capture the photo
-  const capturePhoto = () => {
+  // Stop the video stream
+  const stopStream = () => {
+    if (videoRef.current && videoRef.current.srcObject) {
+      const stream = videoRef.current.srcObject as MediaStream;
+      stream.getTracks().forEach(track => track.stop());
+      setIsStreaming(false);
+    }
+  };
+
+  // Capture the photo and stop the video stream
+  const capturePhoto = (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent default form submission behavior
+
     if (videoRef.current && canvasRef.current && isStreaming) {
       const context = canvasRef.current.getContext('2d');
       canvasRef.current.width = videoRef.current.videoWidth;
@@ -44,17 +56,26 @@ const CapturePhoto: React.FC<Props> = ({ onCapture }) => {
       if (onCapture) {
         onCapture(dataUrl);
       }
+
+      stopStream();  // Stop the video stream after capturing the photo
     }
+  };
+
+  // Optional: Handle form submit event if it's inside a form
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault(); 
   };
 
   return (
     <div>
-      <video ref={videoRef} width="640" height="480"></video>
-      <canvas ref={canvasRef} style={{ display: 'none' }}></canvas>
-      <div>
-        {!isStreaming && <button onClick={startStream}>Start Camera</button>}
-        {isStreaming && <button onClick={capturePhoto}>Capture Photo</button>}
-      </div>
+      <form onSubmit={handleSubmit}>
+        <video ref={videoRef} width="640" height="480"></video>
+        <canvas ref={canvasRef} style={{ display: 'none' }}></canvas>
+        <div>
+          {!isStreaming && <button onClick={startStream}>Start Camera</button>}
+          {isStreaming && <button onClick={capturePhoto}>Capture Photo</button>}
+        </div>
+      </form>
     </div>
   );
 };

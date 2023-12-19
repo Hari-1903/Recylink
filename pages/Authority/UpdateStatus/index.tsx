@@ -82,8 +82,9 @@ const UpdateStatus: React.FC = () => {
           </table>
           <div className='h-full rounded-md row-span-2 shadow-lg'>
             {/* Placeholder for Graph Component */}
-            <Text>Some Graph</Text>
+            {/* <Text>Some Graph</Text> */}
           </div>
+          
           <div className='h-full rounded-md shadow-lg'>
             {/* Placeholder for Total Details Component */}
             <Text>Total Details </Text>
