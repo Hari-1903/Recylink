@@ -67,7 +67,7 @@ const UploadContent = () => {
                 method: "POST",
                 url: "https://detect.roboflow.com/garbage-classification-3/2",
                 params: {
-                    api_key: "UZKg5qOB4uV1SEipe4ec"
+                    api_key: "OolGgvNY6TkxBtrMa2rT"
                 },
                 data: currentImage.split(',')[1],  // Splitting to send only the Base64 data without the prefix (data:image/png;base64,)
                 headers: {
