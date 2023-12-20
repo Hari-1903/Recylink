@@ -12,25 +12,25 @@ const Login = () => {
   const [isAuthorityLogin, setIsAuthorityLogin] = useState(false);
   const [issingupmode, setIsSignupmode] = useState(true);
 
-  const sendOtp = async (phone) => {
+  const sendOtp = async (phone : any) => {
     console.log(`Sending OTP to ${phone}`);
     return new Promise(resolve => setTimeout(() => resolve("1234"), 1000));
   };
 
-  const handleSendOtp = async (e) => {
+  const handleSendOtp = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const otpResponse = await sendOtp(phoneNumber);
     console.log(`OTP Sent: ${otpResponse}`);
     setOtpSent(true);
   };
 
-  const handleUserLogin = (e) => {
+  const handleUserLogin = async(e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(`Verifying OTP: ${otp}`);
     window.location.href = "/User";
   };
 
-  const handleauthoritySubmit = (e) => {
+  const handleauthoritySubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (authorityId === 'admin' && passwordOff === 'admin') {
       window.location.href = '/Authority';
