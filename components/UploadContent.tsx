@@ -12,7 +12,7 @@ type ImageDetails = {
     timeOfComplaint: string;
     imageUrl: string;
     location: string;
-    status: 'in-review';
+    status: string;
     api_Response: any;
   };
   
@@ -29,6 +29,7 @@ const UploadContent = () => {
     const [livecapture,setlivecapture] = useState(false);
     const [latitude, setLatitude] = useState("");
     const [longitude, setLongitude] = useState("");
+    const [status,setStatus] = useState("In-Review" as string);
 
     React.useEffect(() => {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -89,7 +90,7 @@ const UploadContent = () => {
                 timeOfComplaint: currentDate.toLocaleTimeString(),
                 imageUrl: currentImage,
                 location,
-                status: 'In-Review',
+                status: status,
                 api_Response: response.data,
                 }];  
                 localStorage.setItem('imageDetails', JSON.stringify(newDetails));

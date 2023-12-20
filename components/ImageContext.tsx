@@ -8,7 +8,7 @@ type ImageDetails = {
   timeOfComplaint: string;
   imageUrl: string;
   location: string;
-  status: 'submitted';
+  status: string;
   api_Response: any;
 };
 

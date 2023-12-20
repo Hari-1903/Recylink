@@ -4,14 +4,12 @@ import { RxAvatar } from "react-icons/rx";
 import MobileNav from '@/components/MobileNav';
 import { useImage } from '@/components/ImageContext';
 
-const Rewards = () => {
-    const { imageDetails } = useImage();
 
-    let calculatedPoints = 0;
-    if (imageDetails.length > 0 && imageDetails[imageDetails.length - 1].status === 'done') {
-      const lastComplaintNumber = imageDetails[imageDetails.length - 1].complaintNumber;
-      calculatedPoints = lastComplaintNumber * 20;
-    }
+const Rewards = () => {
+    const { imageDetails, setImageDetails } = useImage();
+    
+    const lastComplaintNumber =imageDetails.length > 0 ? imageDetails[imageDetails.length - 1].complaintNumber : 0;
+    const calculatedPoints = lastComplaintNumber * 20;
 
     const rewards = [
         {
@@ -62,7 +60,7 @@ const Rewards = () => {
             </div>
             <div className='font-bold text-lg'>CLAIM MY POINTS</div>
         {/* Rewards Cards */}
-                <section className="rewards grid grid-cols-3 gap-4 p-6 overflow-y-auto">
+                <section className="rewards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-6 ">
                     {rewards.map((reward, index) => (
                         <RewardCard key={index} title={reward.title} points={reward.points} description={reward.description} expiry={reward.expiry} /> 
                     ))}
@@ -81,7 +79,7 @@ interface RewardCardProps {
 
 const RewardCard: React.FC<RewardCardProps> = ({ title, points, description, expiry}) => {
     return (
-      <div className="max-w-sm rounded shadow-xl bg-white p-6 over">
+      <div className="max-w-sm rounded overflow-hidden shadow-xl bg-white p-6">
         <h3 className="text-lg font-bold mb-2">{title}</h3>
         <p className="text-gray-700 text-base mb-4">{description}</p>
         <p className="text-gray-700 text-base mb-4"><span className='font-semibold'>Expiry: </span>{expiry}</p>
