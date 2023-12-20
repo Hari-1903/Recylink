@@ -142,10 +142,6 @@ const UploadContent = () => {
                     <form className='p-4 md:p-0 md:hidden bg-tint rounded-xl shadow-content'>
                                 <label>Image</label>
                                 <Input h={"50px"} pt={"2"} type="file" accept="image/*" onChange={handleImageChange} />
-                                <br/>
-                                <label>Location</label>
-                                <Input value={location} onChange={(e) => setLocation(latitude)} />
-                                <br/>
                                 <div className='flex mt-4'> 
                                     <Button onClick={handleUpload}>Submit</Button>
                                     <div className='flex flex-col justify-center'>

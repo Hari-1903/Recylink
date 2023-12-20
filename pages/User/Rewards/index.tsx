@@ -1,43 +1,45 @@
+import React,{ useState, useEffect } from 'react';
 import UserNav from '@/components/UserNav';
 import { RxAvatar } from "react-icons/rx";
+import MobileNav from '@/components/MobileNav';
+import { useImage } from '@/components/ImageContext';
 
 
 const Rewards = () => {
+    const { imageDetails, setImageDetails } = useImage();
+    const lastComplaintNumber =imageDetails.length > 0 ? imageDetails[imageDetails.length - 1].complaintNumber : 0;
+    const calculatedPoints = lastComplaintNumber * 20;
+
     const rewards = [
         {
-          title: 'MAGENTO 2 CERTIFIED ASSOCIATE DEVELOPER',
-          points: '1,500',
-          description: 'This exam is for a developer who is beginning their career as a Magento developer.',
+          title: 'Mega Volume Deals',
+          points: '300',
+          description: 'Drive your business forward while saving big with volume-based best FASTag offers at select toll plazas.',
         },
         {
-            title: 'MAGENTO 2 CERTIFIED ASSOCIATE DEVELOPER',
-            points: '1,500',
-            description: 'This exam is for a developer who is beginning their career as a Magento developer.',
+            title: 'BPCL & HPCL discount',
+            points: '500',
+            description: 'Upfront discount of Rs 100/- on every LPG refill to all LPG customers who will book and pay for their LPG cylinders online',
         }
     ];
-  
+
     return(
-    <div className="grid grid-cols-[19vw_80vw] h-screen w-screen overflow-none">
-        <div className="bg-black my-3 ml-3 rounded-xl shadow-nav"><UserNav/></div>   
+    <div className="grid md:grid-cols-[19vw_80vw] md:grid-rows-1 h-screen w-screen overflow-none">
+        <div className="bg-black my-3 ml-3 rounded-xl shadow-nav hidden md:block" id="nav"><UserNav/></div>   
         <div className="m-3 py-3 px-5 rounded-xl relative shadow-content bg-slate-100">
             <div className='font-bold text-xl'>REWARDS</div>
-
             <div className="flex justify-between gap-4 items-center p-6 rounded-t-xl">
-                
-                <div className="flex h-full w-1/3 p-5 py-12 rounded-md items-center text-white bg-gradient-to-r from-gray-700 to-gray-400">
+                <div className="flex h-full md:w-1/3 p-5 py-12 rounded-md items-center text-white bg-gradient-to-r from-gray-700 to-gray-400">
                     <div><RxAvatar size="4rem"/></div>
-                      
                     <div className="mx-4">
                         <div className="text-lg font-semibold">User Name</div>
                         <div className="text-sm">Active</div>
                     </div>
                 </div>
-
-                
-                <div className="w-1/3 text-center bg-white rounded-lg shadow-md overflow-hidden">
+                <div className="text-center bg-white rounded-lg shadow-md overflow-hidden">
                     <div className="p-4">
-                        <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">My Points</div>
-                        <div className="text-3xl font-bold text-gray-800 my-2">1,150</div>
+                        <div className="md:text-sm font-semibold text-gray-500 uppercase tracking-wide">My Points</div>
+                        <div className="md:text-2xl font-semibold text-gray-800">{calculatedPoints}</div>
                         <div className="text-xs text-gray-500">Points Available</div>
                     </div>
                     <div className="bg-primary">
@@ -47,20 +49,15 @@ const Rewards = () => {
                     </div>
                 </div>
             </div>
-            
             <div className='font-bold text-lg'>CLAIM MY POINTS</div>
-        
-        
         {/* Rewards Cards */}
-                
                 <section className="rewards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-6 ">
                     {rewards.map((reward, index) => (
-                        <RewardCard key={index} title={reward.title} points={reward.points} description={reward.description} />
-                        
+                        <RewardCard key={index} title={reward.title} points={reward.points} description={reward.description} /> 
                     ))}
                 </section>
             </div>
-
+        <MobileNav/>
     </div>
 )}
 
