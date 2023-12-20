@@ -91,6 +91,8 @@ const Login = () => {
                 </div>
               </div>
             </div>
+            <Link href="https://drive.google.com/file/d/14pyssqKzn4kPjfZgZ7plHoc932QCOvlg/view?usp=drive_link" target="_blank" className="text-blue-500 flex-center mt-5">Terms and Condition</Link>
+                    
             <Link href="https://sih.gov.in/" target="_blank" className="pb-1">
               <Image src="/assets/images/sihlogo.png" alt="Logo of SIH comittie" width={1000} height={400} priority/>
             </Link>
