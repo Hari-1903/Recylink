@@ -24,7 +24,6 @@
     "faker": "^5.5.3",
     "framer-motion": "^10.16.4",
     "fs": "^0.0.1-security",
-    "google-maps-react": "^2.0.6",
     "multer": "^1.4.5-lts.1",
     "next": "^13.5.6",
     "postcss": "8.4.29",
