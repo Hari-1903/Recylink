@@ -42,12 +42,14 @@ const UploadContent = () => {
         reader.readAsDataURL(file);
         reader.onload = () => {
         setCurrentImage(reader.result as string);
+        setLocation(`${latitude}\n${longitude}`);
         };
     };
 
     const handleLiveCapture = (dataUrl: string) => {
         setCurrentImage(dataUrl);
         setShowLiveCaptureSubmit(true); // Show the submit button once the image is captured
+        setLocation(`${latitude}\n${longitude}`);
         toast({
             title: "Image Captured Successfully.",
             description: "Now, submit the complaint with the captured image.",
@@ -142,11 +144,14 @@ const UploadContent = () => {
                                 <Input h={"50px"} pt={"2"} type="file" accept="image/*" onChange={handleImageChange} />
                                 <br/>
                                 <label>Location</label>
-                                <Input value={location} onChange={(e) => setLocation(e.target.value)} />
+                                <Input value={location} onChange={(e) => setLocation(latitude)} />
                                 <br/>
                                 <div className='flex mt-4'> 
                                     <Button onClick={handleUpload}>Submit</Button>
-                                    <p className='text-xs flex-center pl-3'>Lat:{latitude}<br/>Long:{longitude}</p>
+                                    <div className='flex flex-col justify-center'>
+                                        <p className='text-xs pl-3'>Lat:{latitude}</p>
+                                        <p className='text-xs pl-3'>Long:{longitude}</p>
+                                    </div>
                                 </div>
                     </form>
                     <div className='bg-tint rounded-xl flex-center shadow-content'>
@@ -155,12 +160,13 @@ const UploadContent = () => {
                                 <label>Image</label>
                                 <Input h={"50px"} pt={"2"} type="file" accept="image/*" onChange={handleImageChange} />
                                 <br/>
-                                <label>Location</label>
-                                <Input value={location} onChange={(e) => setLocation(e.target.value)} />
                                 <br/>
                                 <div className='flex mt-4'> 
                                     <Button onClick={handleUpload}>Submit</Button>
-                                    <p className='text-xs flex-center pl-3'>Lat:{latitude}<br/>Long:{longitude}</p>
+                                    <div className='flex flex-col justify-center'>
+                                        <p className='text-xs pl-3'>Lat:{latitude}</p>
+                                        <p className='text-xs pl-3'>Long:{longitude}</p>
+                                    </div>
                                 </div>
                             </form>) : livecapture ? 
                             (     <form>
@@ -169,12 +175,13 @@ const UploadContent = () => {
                                     <CapturePhoto onCapture={handleLiveCapture} />
                                     <br/>
                                     {showLiveCaptureSubmit && (
-                                        <>
-                                            <label>Location</label>
-                                            <Input value={location} onChange={(e) => setLocation(e.target.value)} />
-                                            <br/>
-                                            <Button mt={4} onClick={handleUpload}>Submit</Button>
-                                        </>
+                                    <div className='flex mt-4'> 
+                                        <Button onClick={handleUpload}>Submit</Button>
+                                        <div className='flex flex-col justify-center'>
+                                            <p className='text-xs pl-3'>Lat:{latitude}</p>
+                                            <p className='text-xs pl-3'>Long:{longitude}</p>
+                                        </div>
+                                    </div>
                                     )}
                                 </form>) : 
                             (<>
@@ -194,9 +201,8 @@ const UploadContent = () => {
                                 <p className='text-lg font-bold'>{detail.complaintNumber}</p>
                                 <p className='text-lg font-bold text-teritiary hover:text-blac'>{detail.status}</p>
                             </div>
-                            <div className='flex-center py-2 flex-col'>
+                            <div className='flex-center py-4 flex-col'>
                                 <Image src={detail.imageUrl} alt="Uploaded Trash" className='rounded-md' boxSize={{ base: "100px", md: "175px" }} />
-                                <p className='text-xs'>{detail.location}</p>
                             </div>
                             <div className='flex justify-between border-t-2'>
                                 <p className='text-xs'>{detail.dateOfComplaint}</p>

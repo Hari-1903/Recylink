@@ -59,17 +59,18 @@ const Rewards = () => {
                         
                     ))}
                 </section>
-                   {/* <div>A reward card</div>
-                    <div>A reward card</div>
-                    <div>A reward card</div> */}
-          
-              
             </div>
 
     </div>
 )}
 
-const RewardCard = ({ title, points, description }) => {
+interface RewardCardProps {
+    title: string;
+    points: string;
+    description: string;
+  }
+
+const RewardCard: React.FC<RewardCardProps> = ({ title, points, description }) => {
     return (
       <div className="max-w-sm rounded overflow-hidden shadow-xl bg-white p-6">
         <h3 className="text-lg font-bold mb-2">{title}</h3>
