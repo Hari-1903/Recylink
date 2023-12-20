@@ -25,12 +25,12 @@ const StackedBarChart: React.FC = () => {
           {
             label: "Treated",
             data: data.map((entry) => parseInt(entry.Treated)),
-            backgroundColor: "rgb(167, 114, 79)",
+            backgroundColor: "rgb(0,255,0)",
           },
           {
             label: "Untreated",
             data: data.map((entry) => parseFloat(entry.Untreated)),
-            backgroundColor: "rgb(150, 224, 114)",
+            backgroundColor: "rgb(255, 0, 0)",
           },
         ];
 
