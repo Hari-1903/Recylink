@@ -2,12 +2,14 @@ import React from 'react';
 import AuthorityNav from '@/components/AuthorityNav';
 
 const Map = () => {
+
   // Define your two locations
-  const location1 = "Place+Name+1"; // Replace with your first location in URL format
-  const location2 = "Place+Name+2"; // Replace with your second location in URL format
+  const location1 = "Sreenidhi University, Ghatkesar, Secunderabad, Telangana 501301"; // Replace with your first location in URL format
+  const location2 = "Municipal office, 9G5P+F7F, Gayatri Nagar, Saroornagar, Hyderabad, Telangana 500035"; // Replace with your second location in URL format
+  const location3 = "Recycling Center, Malkajgiri, Hyderabad, Telangana 500047"; // Replace with your second location in URL format
 
   // Google Maps directions URL
-  const directionsUrl = `https://www.google.com/maps/dir/${location1}/${location2}`;
+  const directionsUrl = `https://www.google.com/maps/dir/${location1}/${location2}/${location3}`;
 
   return (
     <div className="grid grid-cols-[280px_1fr] h-screen w-screen">
