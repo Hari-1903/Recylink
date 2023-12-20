@@ -69,12 +69,12 @@ const Login = () => {
                     <div>
                       {!otpSent ? (
                         <form onSubmit={handleSendOtp}>
-                          <input type="tel" required placeholder="Phone Number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="w-full resize-none rounded-lg pt-3 pl-4 pr-4 pb-4"/>
+                          <input type="number" required placeholder="Phone Number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="w-full resize-none rounded-lg pt-3 pl-4 pr-4 pb-4"/>
                           <button type="submit" className="w-3/4 text-white py-2 rounded-[10px] border-2 bg-primary hover:scale-[0.95] transition-all ease-in mt-7">Send OTP</button>
                         </form>
                       ) : (
                         <form onSubmit={handleUserLogin}>
-                          <input type="text" required placeholder="OTP" value={otp} onChange={(e) => setOtp(e.target.value)} className="w-full resize-none rounded-lg pt-3 pl-4 pr-4 pb-4"/>
+                          <input type="number" required placeholder="OTP" value={otp} onChange={(e) => setOtp(e.target.value)} className="w-full resize-none rounded-lg pt-3 pl-4 pr-4 pb-4"/>
                           <button type="submit" className="w-3/4 text-white py-2 rounded-[10px] border-2 bg-primary hover:scale-[0.95] transition-all ease-in mt-7">Submit</button>
                         </form>
                       )}
@@ -92,7 +92,7 @@ const Login = () => {
               </div>
             </div>
             <Link href="https://drive.google.com/file/d/14pyssqKzn4kPjfZgZ7plHoc932QCOvlg/view?usp=drive_link" target="_blank" className="text-blue-500 flex-center mt-5">Terms and Condition</Link>
-                    
+
             <Link href="https://sih.gov.in/" target="_blank" className="pb-1">
               <Image src="/assets/images/sihlogo.png" alt="Logo of SIH comittie" width={1000} height={400} priority/>
             </Link>
