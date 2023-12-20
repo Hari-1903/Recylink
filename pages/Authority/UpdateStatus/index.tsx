@@ -81,10 +81,7 @@ const UpdateStatus: React.FC = () => {
       ...prevTimes,
       [complaintNumber]: new Date().toLocaleString()
     }));
-    setStatuses(prevStatuses => ({
-      ...prevStatuses,
-      [complaintNumber]: 'Done'
-    }));
+    
     
     if (actionClicked[complaintNumber]) {
       return; 
@@ -96,8 +93,13 @@ const UpdateStatus: React.FC = () => {
         ? { ...detail, status: newStatus }
         : detail
     );
+    
+    setStatuses(prevStatuses => ({
+      ...prevStatuses,
+      [complaintNumber]: newStatus
+    }));
 
-    setActionClicked((prevClicked) => ({ ...prevClicked, [complaintNumber]: true }));
+    setActionClicked(prevClicked => ({ ...prevClicked, [complaintNumber]: true }));
     setDoneCount((prevCount) => (action === 'done' ? prevCount + 1 : prevCount));
     setSpamCount((prevCount) => (action === 'spam' ? prevCount + 1 : prevCount));
     setCompletionTimes((prevTimes) => ({
@@ -105,8 +107,6 @@ const UpdateStatus: React.FC = () => {
       [complaintNumber]: new Date().toLocaleString(),
     }));
 
-    // Update image details in the context or wherever it's stored
-    // Example: updateImageDetails(updatedImageDetails);
   };
 
   return (
@@ -140,7 +140,7 @@ const UpdateStatus: React.FC = () => {
                           {pred.class}
                           {idx !== detail.api_Response.predictions.length - 1 ? ', ' : ''}
                         </React.Fragment>
-                      ))}
+                      ))} 
                     </td>
                     <td className="border px-4 py-2">{detail.timeOfComplaint}</td>
                     <td className="border px-4 py-2">{completionTimes[detail.complaintNumber]}</td>

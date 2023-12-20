@@ -3,13 +3,14 @@ import UserNav from '@/components/UserNav';
 import { RxAvatar } from "react-icons/rx";
 import MobileNav from '@/components/MobileNav';
 import { useImage } from '@/components/ImageContext';
+import Image from 'next/image';
 
 
 const Rewards = () => {
     const { imageDetails, setImageDetails } = useImage();
     
-    const lastComplaintNumber =imageDetails.length > 0 ? imageDetails[imageDetails.length - 1].complaintNumber : 0;
-    const calculatedPoints = lastComplaintNumber * 20;
+    
+    let ResponseCount = 0;
 
     const rewards = [
         {
@@ -36,6 +37,22 @@ const Rewards = () => {
     <div className="grid md:grid-cols-[19vw_80vw] md:grid-rows-1 h-screen w-screen overflow-none">
         <div className="bg-black my-3 ml-3 rounded-xl shadow-nav hidden md:block" id="nav"><UserNav/></div>   
         <div className="m-3 py-4 px-6 rounded-xl relative shadow-content bg-slate-100">
+            <div className='hidden'>  
+            {imageDetails.map((detail: any) => (
+                <div key={detail.complaintNumber}>
+                {detail.api_Response !== null && (
+                    <>
+                    {detail.api_Response.predictions.map((pred: any, index: any) => (
+                        <React.Fragment key={index}>
+                        {pred.class}{index !== detail.api_Response.predictions.length - 1 ? ', ' : ''}
+                        </React.Fragment>
+                    ))}
+                    {ResponseCount = ResponseCount + 1}
+                    </>
+                )}
+        </div>
+      ))}
+                </div>
             <div className='font-bold text-xl'>REWARDS</div>
             <div className="flex justify-between gap-4 items-center p-6 rounded-t-xl">
                 <div className="flex h-full md:w-1/2 p-5 py-12 rounded-md items-center text-white bg-gradient-to-r from-gray-700 to-gray-400">
@@ -48,7 +65,7 @@ const Rewards = () => {
                 <div className="text-center bg-white rounded-lg shadow-md overflow-hidden">
                     <div className="p-4">
                         <div className="md:text-sm font-semibold text-gray-500 uppercase tracking-wide">My Points</div>
-                        <div className="md:text-2xl font-semibold text-gray-800">{calculatedPoints}</div>
+                        <div className="md:text-2xl font-semibold text-gray-800">{ResponseCount * 20}</div>
                         <div className="text-xs text-gray-500">Points Available</div>
                     </div>
                     <div className="bg-primary">
@@ -88,6 +105,7 @@ const RewardCard: React.FC<RewardCardProps> = ({ title, points, description, exp
           <button className="bg-primary hover:bg-dark-prim text-white font-bold py-2 px-4 rounded">
             Claim points
           </button>
+    
         </div>
       </div>
     );
