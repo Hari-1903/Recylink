@@ -3,8 +3,9 @@
 Recylink is a user-centric digital platform focusing on waste management in India. It enables seamless reporting and resolution of waste-related issues by connecting users with local authorities. A deep learning model categorizes waste for efficient collection and transport. The website offers multilingual support and includes a rewards system where users earn points for reporting litter, redeemable for coupons and gift cards.
 <p> </p><br>
 
-![image](https://github.com/smearful/test/assets/91040298/0c9d24c4-975d-4a5a-8844-c297c66dcb8a)
-
+<p align="center">
+    <img src="./public/assets/icons/readme.png" width="80%%">
+</p>
 
 ## 📱Navigating Recyclink
 
@@ -19,9 +20,7 @@ Recylink is a user-centric digital platform focusing on waste management in Indi
 
 ## 🏗️Technologies Used
 
- ![NextJS-Dark (1)](https://github.com/smearful/test/assets/91040298/a1afefa1-7f5a-4ff1-ae5a-86ab4adc2124) ![NodeJS-Light (1)](https://github.com/smearful/test/assets/91040298/5da47092-aa02-449e-bddd-1f2c66dab735)
-    ![TypeScript (1)](https://github.com/smearful/test/assets/91040298/19f5caa5-79d2-4bab-b33b-7faa203fdf36) ![Vercel-Dark (1)](https://github.com/smearful/test/assets/91040298/08015217-94f3-452a-bd33-59a06c01b39a) ![tailwindcss-icon (1)](https://github.com/smearful/test/assets/91040298/1cab22a3-9845-410c-886e-a9565afbc7dd) 
- ![react-2 (1)](https://github.com/smearful/test/assets/91040298/634c1fd0-2d30-43c5-85b2-1a83dc4bd5f4)
+<img src="https://skillicons.dev/icons?i=nextjs,ts,tailwind,js,vercel" alt="skills logos" />
 
 
 ## 🎯Features
